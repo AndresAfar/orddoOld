@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
+
+    <!-- Styles-->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+    
+
+    <title>Document</title>
+</head>
+<body>
+
+
+    <header class="div-navbar">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <img src="img/Logo.png" alt="Logo" width="185" height="80" class="d-inline-block align-text-top mx-3">
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <a class="navbar-brand" href="#">MENU</a>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="homeUP.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pedidos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Reportes</a>
+                    </li>
+                </ul>
+              </div>
+              <div class="d-flex">
+                <div class="dropdown mx-5">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown button
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
+                    </ul>
+                  </div>
+              </div>
+            </div>
+          </nav>
+    </header>
+
+<!--
+    <div class="conteiner my-5 mx-0">
+        <div class="row p-4 mx-0">
+             Styles
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <form id="taks-form">
+                            <h2>Registro Empleado</h2>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" id="first-name" placeholder="Nombre" class="form-control my-2">
+                                    <input type="text" id="last-name" placeholder="Apellido" class="form-control my-2">
+                                </div>
+                                <div class="input-group">
+                                    <input type="text" id="email" placeholder="Correo Electronico" class="form-control my-2">
+                                </div>
+                                <div class="input-group">
+                                    <input type="text" id="phone-number" placeholder="Telefono" class="form-control my-2">
+                                    <input type="text" id="document" placeholder="Documento" class="form-control my-2">
+                                </div>
+                                <div class="input-group my-2">
+                                    <label class="input-group-text" for="inputGroupSelect01">Cargo</label>
+                                    <select class="form-select" id="jobPos">
+                                      <option selected>Seleccione...</option>
+                                      <option value="Em. General">Em. General</option>
+                                      <option value="Administrador">Administrador</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <input type="text" id="user" placeholder="Usuario" class="form-control my-2">
+                                    <input type="text" id="password" placeholder="Contraseña" class="form-control my-2">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-p text-center w-100 my-2">Registrar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <div class="card text-center m-4">
+        <div class="card-header">
+            Empleados
+        </div>
+        <div class="card-body">
+            <div class="d-flex text-end justify-content-end">
+                <button class="btn btn-success m-3">Agregar Empleado</button>
+                <div class="text-end m-3">
+                    <form class="d-flex" style="width: 18rem;">
+                        <input type="search" id="search" placeholder="Buscar empleado" class="form-control me-2">
+                        <button type="submit" class="btn btn-p">Buscar</button>
+                    </form>
+                </div>
+            </div>
+            <div class="card my-4" id="consult-result">
+                <div class="card-body">
+                    <ul id="container"></ul>
+                </div>
+            </div>
+            <table class="table table-sm ">
+                <thead class="table-dark">
+                    <tr>
+                        <td class="">Documento</td>
+                        <td class="">Nombre</td>
+                        <td class="">Apellido</td>
+                        <td class="">Email</td>
+                        <td class="">Telefono</td>
+                        <td class="">Cargo</td>
+                        <td class="">Eliminar</td>
+                    </tr>
+                </thead>
+                <tbody id="employeesTbl">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer class="container-fluid position-fixed bottom-0 end-0 bg-dark text-white">
+        <div class="footer-p container text-center p-3">
+            <p>ORDDO 2023 © Todos los derechos reservados</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/ajax.js"></script>
+</body>
+</html>
