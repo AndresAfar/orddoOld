@@ -16,7 +16,7 @@ const valUser=(user)=>{
 const  valName=(name)=>{
     return /^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/.test(name.trim());
 }
-const  valNameLast=(lastName, name)=>{
+const  valNameLast=(lastName)=>{
     return /^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/.test(lastName.trim());
 }
 

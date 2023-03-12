@@ -2,9 +2,10 @@
     font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
-.container{
-    background-color: #EAAD94 !important;
+body{
+    background-color: #fa9e7f38 !important;
 }
+
 .btn-p{
     background-color: #EA7C4B !important;
     color: aliceblue;
