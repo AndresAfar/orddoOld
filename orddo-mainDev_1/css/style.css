@@ -1,0 +1,12 @@
+*{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+body{
+    background-color: #fa9e7f38 !important;
+}
+
+.btn-p{
+    background-color: #EA7C4B !important;
+    color: aliceblue;
+}
