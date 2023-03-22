@@ -62,7 +62,7 @@ a{
     margin: 11px;
     text-align:initial;
 }
-form button{
+form .btn-login{
     color: #FFFFFF;
     border: none;
     border-radius: 3px;

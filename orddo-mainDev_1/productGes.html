@@ -15,9 +15,9 @@
     <link rel="stylesheet" href="./css/style.css">
 
 
-    <title>Document</title>
+    <title>Productos - Orddo</title>
 </head>
-<body onload="loadProduct();">
+<body onload="loadProduct();" onload="checksesion();">
 
     <header class="div-navbar">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -42,11 +42,10 @@
               </div>
               <div class="d-flex">
                 <div class="dropdown mx-5">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown button
+                    <button class="btn btn-secondary dropdown-toggle" id="userVal" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     </button>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
+                      <li><button class="dropdown-item" onclick="singOut()">Cerrar Sesion</button></li>
                     </ul>
                   </div>
               </div>
@@ -148,4 +147,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="./js/orderMana.js"></script>
+    
+    <script src="./js/sesionVal.js"></script>
 </html>

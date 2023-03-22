@@ -1,6 +1,4 @@
 
-
-
 //REGISTRO DE USUASRIO
 const registerUser= async()=>{
 
@@ -170,16 +168,18 @@ const loginUser= async()=>{
      });
      var result = await res.json();
  
-     if(result.success ==true){
+     if(result.success == true){
          Swal.fire({
              icon: 'success',
              title: 'EXITO!',
              text: result.mess
            })
-         document.querySelector("#form_log").reset(); 
+         document.querySelector("#form_log").reset();
+         localStorage.setItem('username',result.username);
          setTimeout(()=>{
-             Window.location().href("homeUP.html")
+          window.location.href = "homeUP.html";
          },2000)
+         
      }else{
          Swal.fire({
              icon: 'error',
