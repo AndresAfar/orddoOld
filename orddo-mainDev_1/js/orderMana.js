@@ -63,13 +63,14 @@ const registerProduct = async()=>{
 
     
 
-    if(result.success ==true){
+    if(result.success == true){
         Swal.fire({
             icon: 'success',
             title: 'EXITO!',
             text: result.mess
           })
         document.querySelector("#formaddPro").reset();
+        document.getElementById('productTbl').reset();
     }else{
         Swal.fire({
             icon: 'error',
@@ -78,4 +79,25 @@ const registerProduct = async()=>{
           })
           document.querySelector("#addModal").click();
     }
+}
+
+
+//Mostrar datos en tablas sin posibilidad de editar esa informacion
+const loadProductTblShow = async()=>{
+    var res = await fetch("php/products/consulPro.php");
+    var productsHTML = ``;
+    var shoPro = await res.json();
+
+    shoPro.date.forEach(item => {
+        productsHTML +=`
+            <tr>
+                <td>${item[0]}</td>
+                <td>${item[1]}</td>
+                <td>${item[2]}</td>
+                <td>${item[3]}</td>
+            </tr>
+        `;
+    });
+
+    document.querySelector("#productTbl2").innerHTML=productsHTML;
 }

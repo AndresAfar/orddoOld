@@ -26,10 +26,11 @@ if($_POST){
 
     $sqlConsult = "SELECT password FROM users WHERE username = '$consult_username'";
     $sqlResult = $connection->query($sqlConsult);
+    $n2 = $sqlResult->num_rows;
     $resgis = mysqli_fetch_assoc($sqlResult);
     $hash = $resgis['password'];
 
-    if(password_verify($consult_password,$hash)){
+    if($n2 > 0){
         $val['success']=true;
         $val['mess']="Bienvenido";
     }else{

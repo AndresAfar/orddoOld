@@ -24,7 +24,7 @@
             <div class="container-fluid">
               <img src="img/Logo.png" alt="Logo" width="185" height="80" class="d-inline-block align-text-top mx-3">
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <a class="navbar-brand" href="#">MENU</a>
+                <a class="navbar-brand" href="#">MENÚ</a>
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="homeUP.html">Inicio</a>
@@ -45,7 +45,7 @@
                     <button class="btn btn-secondary dropdown-toggle" id="userVal" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     </button>
                     <ul class="dropdown-menu">
-                      <li><button class="dropdown-item" onclick="singOut()">Cerrar Sesion</button></li>
+                      <li><button class="dropdown-item" onclick="singOut()">Cerrar Sesión</button></li>
                     </ul>
                   </div>
               </div>
@@ -100,7 +100,7 @@
         </div>
         <div class="card-body">
             <div class="d-flex text-end justify-content-end">
-                <button class="btn btn-success m-3">Agregar Empleado</button>
+                <button class="btn btn-success m-3" data-bs-toggle="modal" data-bs-target="#addModal">Agregar Empleado</button>
                 <div class="text-end m-3">
                     <form class="d-flex" style="width: 18rem;">
                         <input type="search" id="search" placeholder="Buscar empleado" class="form-control me-2">
@@ -120,7 +120,7 @@
                         <td class="">Nombre</td>
                         <td class="">Apellido</td>
                         <td class="">Email</td>
-                        <td class="">Telefono</td>
+                        <td class="">Teléfono</td>
                         <td class="">Cargo</td>
                         <td class="">Editar</td>
                         <td class="">Eliminar</td>
@@ -138,13 +138,81 @@
             <p>ORDDO 2023 © Todos los derechos reservados</p>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./js/jquery.js"></script>
-    <script src="./js/ajax.js"></script>
 </body>
 
-    
+<!-- Modal -->
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Empleado</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form id="formaddPro">
+                <div class="row">
+                    <div class="mb-3 col">
+                        <label for="name" class="form-label">Nombre: </label>
+                        <input type="text" id="first-name" placeholder="Nombre" class="form-control my-1">
+                    </div>
+                    <div class="mb-3 col">
+                        <label for="price" class="form-label">Apellido: </label>
+                        <input type="text" id="last-name" placeholder="Apellido" class="form-control my-1">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col">
+                        <label for="price" class="form-label">Correo electrónico: </label>
+                        <input type="text" id="email" placeholder="Correo Electronico" class="form-control my-1">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col">
+                        <label for="price" class="form-label">Teléfono: </label>
+                        <input type="text" id="phone-number" placeholder="Telefono" class="form-control my-1">
+                    </div>
+                    <div class="mb-3 col">
+                        <label for="price" class="form-label">Documento: </label>
+                        <input type="text" id="document" placeholder="Documento" class="form-control my-1">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col">
+                        <div class="input-group my-2">
+                            <label class="input-group-text" for="inputGroupSelect01">Cargo</label>
+                            <select class="form-select" id="jobPos" required="">
+                              <option selected>Seleccione...</option>
+                              <option value="Em. General">Em. General</option>
+                              <option value="Administrador">Administrador</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col">
+                        <label for="price" class="form-label">Usuario: </label>
+                        <input type="text" id="user" placeholder="Usuario" class="form-control my-1">
+                    </div>
+                    <div class="mb-3 col">
+                        <label for="price" class="form-label">Contraseña: </label>
+                        <input type="password" id="password" placeholder="Contraseña" class="form-control my-1">
+                    </div>
+                </div>    
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" onclick="registerUser()">Registrar</button>
+            </div>
+        </form>
+    </div>
+    </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   
+<script src="./js/validationFuns.js"></script>
+<script src="./js/loginRes.js"></script>
 <script src="./js/sesionVal.js"></script>
 </html>

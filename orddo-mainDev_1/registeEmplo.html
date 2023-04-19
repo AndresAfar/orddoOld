@@ -10,16 +10,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
 
-    <!-- Styles-->
+    <!-- Styles onload="checksesion();"-->
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
 
     <title>Document</title>
 </head>
-<body onload="checksesion();">
+<body >
     <div class="conteiner my-5 mx-0">
         <div class="row p-4 mx-0">
-             Styles
             <div class="col-md-5">
                 <div class="card">
                     <div class="card-body">
@@ -47,10 +46,9 @@
                                 </div>
                                 <div class="input-group">
                                     <input type="text" id="user" placeholder="Usuario" class="form-control my-2">
-                                    <input type="text" id="password" placeholder="Contraseña" class="form-control my-2">
+                                    <input type="password" id="password" placeholder="Contraseña" class="form-control my-2">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-p text-center w-100 my-2">Registrar</button>
                             <input type="button" class="btn btn-danger form-control" onclick="registerUser()" value="Registrar">
                         </form>
                     </div>
@@ -58,6 +56,7 @@
             </div>
         </div>
     </div>
+</body>
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
@@ -66,7 +65,5 @@
     <script src="./js/jquery.js"></script>
     <script src="./js/validationFuns.js"></script>
     <script src="./js/loginRes.js"></script>
-</body>
-
     <script src="./js/sesionVal.js"></script>
 </html>

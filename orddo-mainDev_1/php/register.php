@@ -36,7 +36,7 @@ if($_POST){
     $n = $result->num_rows;
     if($n === 0){
         $sqlInsert = "INSERT INTO employees (emDocument, emName, emLastName, emPhone, emEmail, emJobPos) VALUES ('$consult_document', '$consult_name', '$consult_lastName', '$consult_phone', '$consult_email', '$consult_jobPos')";
-        $sqlInsert2 = "INSERT INTO users(username, password) VALUES('$consult_username', '$hash')";
+        $sqlInsert2 = "INSERT INTO users(username, password) VALUES('$consult_username', '$consult_password')";
 
         if($connection->query($sqlInsert)=== true && $connection->query($sqlInsert2)=== true){
             $val['success']=true;

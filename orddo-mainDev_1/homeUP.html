@@ -16,14 +16,14 @@
 
     <title>Inicio - Orddo</title>
 </head>
-<body onload="checksesion();">
+<body onload="loadProductTblShow(); checksesion();">
 
     <header class="div-navbar">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
               <img src="img/Logo.png" alt="Logo" width="185" height="80" class="d-inline-block align-text-top mx-3">
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <a class="navbar-brand" href="#">MENU</a>
+                <a class="navbar-brand" href="#">MENÚ</a>
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="productGes.html">Productos</a>
@@ -32,7 +32,7 @@
                         <a class="nav-link" href="orderGes.html">Pedidos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="emploMana.html">Gestion Empleados</a>
+                        <a class="nav-link" href="emploMana.html">Gestión Empleados</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Reportes</a>
@@ -45,7 +45,7 @@
 
                     </button>
                     <ul class="dropdown-menu">
-                      <li><button class="dropdown-item" onclick="singOut()">Cerrar Sesion</button></li>
+                      <li><button class="dropdown-item" onclick="singOut()">Cerrar Sesión</button></li>
                     </ul>
                   </div>
               </div>
@@ -80,7 +80,7 @@
             <div class="col-5">
                 <table class="table  table-responsive">
                     <h2>Productos</h2>
-                    <thead class="table-primary">
+                    <thead class="table-dark">
                         <tr>
                             <td class="text-center">ID</td>
                             <td class="text-center">Imagen</td>
@@ -88,13 +88,8 @@
                             <td class="text-center">Precio</td>
                         </tr>
                     </thead>
-                    <tbody class="productTbl table-secondary">
-                        <tr>
-                            <td class="text-center">ID</td>
-                            <td class="text-center">Imagen</td>
-                            <td class="text-center">Nombre</td>
-                            <td class="text-center">Precio</td>
-                        </tr>
+                    <tbody id="productTbl2" class="productTbl table-secondary">
+                        
                     </tbody>
                 </table>
                 <a href="productGes.html">Ver todos los productos</a>
@@ -108,7 +103,7 @@
                             <td class="text-center">Nombre</td>
                             <td class="text-center">Apellido</td>
                             <td class="text-center">Email</td>
-                            <td class="text-center">Telefono</td>
+                            <td class="text-center">Teléfono</td>
                             <td class="text-center">Cargo</td>
                         </tr>
                     </thead>
@@ -131,7 +126,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./js/jquery.js"></script>
-    <script src="./js/ajax.js"></script>
     <script src="./js/sesionVal.js"></script>
+    <script src="./js/orderMana.js"></script>
 </html>

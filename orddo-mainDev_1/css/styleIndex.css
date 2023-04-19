@@ -21,10 +21,10 @@ form .title{
     color: #FFFFFF;
     font-size: 25px;
     margin-top: 5px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 form label{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 form label input{
     height: 25px;
@@ -68,6 +68,13 @@ form .btn-login{
     border-radius: 3px;
     background-color: #EA7C4B;
     padding: 5px 10px;
+    margin-top: 10px;
     cursor: pointer;
     font-size: 15px;
+}
+.labelText{
+    color: #FFFFFF;
+    float: left;
+    height: 8px;
+    margin-bottom: 15px;
 }

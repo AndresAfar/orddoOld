@@ -111,10 +111,6 @@ const registerUser= async()=>{
             text: result.mess
           })
         document.querySelector("#taks-form").reset();
-        /*
-        setTimeout(()=>{
-            Window.location().href("homeUP.html")
-        },2000)*/
     }else{
         Swal.fire({
             icon: 'error',

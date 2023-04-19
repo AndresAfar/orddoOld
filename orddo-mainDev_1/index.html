@@ -21,11 +21,13 @@
         <form id="form_log">
             <div class="circulo"><img src="img/logo_Orddo.png" width="85px" heigth= "100px"alt=""></div>
             
-            <p class="title">Iniciar Sesion</p>
+            <p class="title">Iniciar Sesión</p>
             <label>
+                <label class="labelText">Usuario: </label>
                 <input placeholder="usuario" type="text" id="user" name="usuario" min="5" maxlength="30">
             </label>
             <label>
+                <label class="labelText">Contraseña: </label>
                 <input placeholder="contraseña" type="password" id="password" name="password" min="5" maxlength="30">
             </label>
             <input type="button" class="btn btn-danger form-control btn-login" onclick="loginUser()" value="Ingresar">
@@ -36,6 +38,5 @@
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="./js/jquery.js"></script>
 <script src="./js/loginRes.js"></script>
 </html>
