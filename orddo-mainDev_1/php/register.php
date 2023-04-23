@@ -31,27 +31,39 @@ if($_POST){
         die('Error al encriptar la contraseña');
     }
 
-    $sql = "SELECT * FROM users WHERE username = '$consult_username'";
+    $sql = "SELECT * FROM usuario WHERE usuario = '$consult_username'";
     $result = $connection->query($sql);
     $n = $result->num_rows;
-    if($n === 0){
-        $sqlInsert = "INSERT INTO employees (emDocument, emName, emLastName, emPhone, emEmail, emJobPos) VALUES ('$consult_document', '$consult_name', '$consult_lastName', '$consult_phone', '$consult_email', '$consult_jobPos')";
-        $sqlInsert2 = "INSERT INTO users(username, password) VALUES('$consult_username', '$consult_password')";
 
-        if($connection->query($sqlInsert)=== true && $connection->query($sqlInsert2)=== true){
+    if($n === 0){
+
+        $sqlInsert2 = "INSERT INTO usuario(usuario, contrasena) VALUES('$consult_username', '$consult_password')";
+
+        if($connection->query($sqlInsert2)=== true){
+
             $val['success']=true;
             $val['mess']="Se registro correctamente";
+
         }else{
+
             $val['success']=false;
             $val['mess']="Error en el registro";
+            
         }
-    }else{
+
+    }
+    else{
+
         $val['success']=false;
         $val['mess']="El usuario ya existe";
+
     }
-}else{
+}
+else{
+
     $val['success']=false;
     $val['mess']="No se realizo registro";
+
 }
 
 echo json_encode($val);

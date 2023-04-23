@@ -4,7 +4,7 @@ require_once '../connection.php';
 
 
 
-$sql = "SELECT * FROM product";
+$sql = "SELECT * FROM producto";
 
 $result= $connection->query($sql);
 

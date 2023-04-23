@@ -14,7 +14,7 @@ if($_POST){
     $consult_descri = $_POST["descri"];
 
     
-        $sql = "INSERT INTO product(proName, proDescri, proPrice, proStatus) VALUES('$consult_name', '$consult_descri', '$consult_price', '$consult_status')";
+        $sql = "INSERT INTO producto(nombreProducto,descripcionProducto,precioProducto,estadoProducto) VALUES('$consult_name', '$consult_descri', '$consult_price', '$consult_status')";
 
         if($connection->query($sql)=== true){
             $val['success']=true;

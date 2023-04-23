@@ -2,7 +2,7 @@
 
 include("connection.php");
 
-$query = "SELECT * FROM employees";
+$query = "SELECT * FROM usuario";
 $result = mysqli_query($connection, $query);
 
 if(!$result){

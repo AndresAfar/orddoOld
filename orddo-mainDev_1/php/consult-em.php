@@ -7,7 +7,7 @@ include("connection.php");
 $search = $_POST["search"];
 
 if(!empty($search)){
-    $query = "SELECT * FROM employees WHERE emDocument LIKE '$search%'";
+    $query = "SELECT * FROM usuario WHERE documento LIKE '$search%'";
 
     $result = mysqli_query($connection, $query);
 

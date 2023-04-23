@@ -16,7 +16,7 @@ if($_POST){
     $consult_password = $_POST["password"];
 
 
-    $sqlConsult2 = "SELECT * FROM users WHERE username = '$consult_username'";
+    $sqlConsult2 = "SELECT * FROM usuario WHERE usuario = '$consult_username'";
     $sqlResult2 = $connection->query($sqlConsult2);
     $n = $sqlResult2->num_rows;
     if($n > 0){
@@ -24,7 +24,7 @@ if($_POST){
         $val['username']=strtoupper($row['username']);
     }
 
-    $sqlConsult = "SELECT password FROM users WHERE username = '$consult_username'";
+    $sqlConsult = "SELECT password FROM usuario WHERE usuario = '$consult_username'";
     $sqlResult = $connection->query($sqlConsult);
     $n2 = $sqlResult->num_rows;
     $resgis = mysqli_fetch_assoc($sqlResult);
