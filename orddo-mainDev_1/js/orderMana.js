@@ -17,12 +17,57 @@ const loadProduct = async()=>{
             </tr>
         `;
     });
-
     document.querySelector("#productTbl").innerHTML=reGisHTML;
 }
 
+//Cargar producto en boton
+const loadBtnProduct = async()=>{
+    var res1 = await fetch("php/products/consulPro.php");
+    var loadHTML = ``;
+    var shoBtnPro = await res1.json();
 
+    shoBtnPro.date.forEach(item => {
+        loadHTML +=`
+            <button class="btn btn-pro-p" type="button">${item[1]}</button>
+        `;
+    });
 
+    document.querySelector("#btnProductSel").innerHTML=loadHTML;
+}
+
+//Subir producto seleccionado a la orden
+const loadProductOrder = async()=>{
+    var res = await fetch("php/products/consulPro.php");
+    var loadHTML = ``;
+    var shoPro = await res.json();
+
+    shoPro.date.forEach(item => {
+        loadHTML +=`
+            <tr>
+                <td><button class="btn btn-pro-p-order" type="button">${item[1]}</button></td>
+            </tr>
+        `;
+    });
+
+    document.querySelector("#secOrder").innerHTML=loadHTML;
+}
+
+//Seleccion
+const selProduct = async()=>{
+    var res = await fetch("php/products/consulPro.php");
+    var loadHTML = ``;
+    var shoPro = await res.json();
+
+    shoPro.date.forEach(item => {
+        loadHTML +=`
+            <tr>
+                <td><button class="btn btn-pro-p-order" type="button">${item[1]}</button></td>
+            </tr>
+        `;
+    });
+
+    document.querySelector("#secOrder").innerHTML=loadHTML;
+}
 
 
 //REGISTRO DE PRODUCTO
@@ -70,7 +115,6 @@ const registerProduct = async()=>{
             text: result.mess
           })
         document.querySelector("#formaddPro").reset();
-        document.getElementById('productTbl').reset();
     }else{
         Swal.fire({
             icon: 'error',
