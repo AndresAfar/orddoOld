@@ -10,3 +10,24 @@ body{
     background-color: #EA7C4B !important;
     color: aliceblue;
 }
+.btn-pro-p{
+    background-color: #EA7C4B;
+    width: 6rem;
+    height: 4rem;
+    color: aliceblue;
+    font-size: 15px;
+    margin: 3px;
+}
+
+.div-product-order{
+    height: 15rem;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: rgb(243, 223, 223);
+}
+
+.p-1{
+    width: 50px !important;
+    height: 50px !important;
+}
