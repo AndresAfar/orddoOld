@@ -28,45 +28,46 @@ const loadBtnProduct = async()=>{
 
     shoBtnPro.date.forEach(item => {
         loadHTML +=`
-            <button class="btn btn-pro-p" type="button">${item[1]}</button>
+            <button id="id_product" class="btn btn-pro-p" type="button" value="${item[0]}" onclick="selProduct(${item[0]})">${item[1]}</button>
         `;
     });
 
     document.querySelector("#btnProductSel").innerHTML=loadHTML;
 }
 
-//Subir producto seleccionado a la orden
-const loadProductOrder = async()=>{
-    var res = await fetch("php/products/consulPro.php");
-    var loadHTML = ``;
-    var shoPro = await res.json();
+//Seleccion de producto
+const selProduct = async(idproduct)=>{
 
-    shoPro.date.forEach(item => {
-        loadHTML +=`
-            <tr>
-                <td><button class="btn btn-pro-p-order" type="button">${item[1]}</button></td>
-            </tr>
-        `;
+    const data = new FormData();
+    data.append("idproduct",idproduct);
+
+    var res = await fetch("php/products/selectPro.php", {
+        method:'POST',
+        body: data
     });
 
-    document.querySelector("#secOrder").innerHTML=loadHTML;
-}
+    var result = await res.json();
+    var productsHTML = ``;
 
-//Seleccion
-const selProduct = async()=>{
-    var res = await fetch("php/products/consulPro.php");
-    var loadHTML = ``;
-    var shoPro = await res.json();
+    if(result.dates != false){
+        result.data.forEach(item => {
+            productsHTML +=`
 
-    shoPro.date.forEach(item => {
-        loadHTML +=`
-            <tr>
-                <td><button class="btn btn-pro-p-order" type="button">${item[1]}</button></td>
-            </tr>
-        `;
-    });
-
-    document.querySelector("#secOrder").innerHTML=loadHTML;
+                <tr>
+                    <td><label for="product" id="idproduct" value="${item[0]}">${item[1]}</label></td>
+                    <td><div style="width: 5px;" class="form-check"><input class="form-check-input mx-5px" type="checkbox" value="${item[0]}" id="flexCheckDefault"></div></td>
+                </tr>
+            `;
+        });
+        document.querySelector("#secOrder").innerHTML=productsHTML;
+    }else{
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'No existe producto!'
+          })
+        return;
+    }
 }
 
 
