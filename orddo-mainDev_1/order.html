@@ -92,7 +92,7 @@
 
     <!-- Modal -->
     <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Pedido</h1>
@@ -111,75 +111,79 @@
                                     <input type="text" class="form-control" id="lastname" placeholder="Apellido">
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="section-inter-p mb-3 col-md-12 col-sm-8 col-xs-6">
-                                    <div class="card">
-                                        <div class="card-header section-p">
-                                            <label for="username" class="form-label">Empleado: William</label>
-                                        </div>
-                                        <div class="input-group p-2">
-                                            <div id="btnProductSel" class="section-btn-pe mb-3 col-md-6">
-                                                
-                                            </div>
-                                            <div class="mb-3 col-md-6">
-                                                <div class="div-product-order card">
-                                                    <div class="card-body">
-                                                        <table class="table table-p">
-                                                            <tbody id="secOrder" >
-                                                                
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <div class="div-content-btncal">
-                                                    <table class="table-content-btn">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td><button type="button"  class="btn btn-primary p-1"  value="1">1</button></td>
-                                                                <td><button type="button"  class="btn btn-primary p-1"  value="2">2</button></td>
-                                                                <td><button type="button"  class="btn btn-primary p-1"  value="3">3</button></td>
-                                                                <td>
-                                                                    <button type="button"  class="btn btn-success btn-2"  value="5000">5.000</button>
-                                                                </td>
-                                                                <td>
-                                                                    <button type="button"  class="btn btn-success btn-2"  value="10000">10.000</button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td><button type="button"  class="btn btn-primary p-1" value="4">4</button></td>
-                                                                <td><button type="button"  class="btn btn-primary p-1" value="5">5</button></td>
-                                                                <td><button type="button"  class="btn btn-primary p-1" value="6">6</button></td>
-                                                                
-                                                                <td>
-                                                                    <button type="button"  class="btn btn-success btn-2"  value="20000">20.000</button>
-                                                                </td>
-                                                                <td>
-                                                                    <button type="button"  class="btn btn-success btn-2"  value="50000">50.000</button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td><button type="button"  class="btn btn-primary p-1" value="7">7</button></td>
-                                                                <td><button type="button"  class="btn btn-primary p-1" value="8">8</button></td>
-                                                                <td><button type="button"  class="btn btn-primary p-1" value="9">9</button></td>
-                                                                <td>
-                                                                    <button type="button"  class="btn btn-success btn-2"  value="100000">100.000</button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <button type="button"  class="btn btn-primary p-1" value="limpiar">Limpiar</button>
-                                                                </td>
-                                                                <td>
-                                                                    <button type="button"  class="btn btn-primary p-1" value="0">0</button>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
+                            <div class="container">
+                                <div class="card">
+                                    <div class="card-header">
 
-                                                            </tr>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="input-group">
+                                            <div class="section-product-ops col-md-6">
+                                                <div id="btnProductSel" class="section-btn-pe">
+                                                
+                                                </div>
+                                            </div>
+                                            <div class="section-orde col-md-6">
+                                                <div class="section-order-mana">
+                                                    <table class="table table-p">
+                                                        <tbody id="secOrder" >
+                                                            
                                                         </tbody>
                                                     </table>
-                                                    <div class="div-btn-inter">
-                                                        <button type="button"  class="btn btn-danger btn-3">Quitar</button>
+                                                </div>
+                                                <div class="btns-section container-fluid">
+                                                    <input type="text" class="form-control text-bg-secondary" style="font-size: large;" id="labelInputNum" disabled>
+                                                    <div class="d-flex">
+                                                        <div class="">
+                                                            <table>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td><button type="button"  class="btn btn-primary p-1"  value="1">1</button></td>
+                                                                        <td><button type="button"  class="btn btn-primary p-1"  value="2">2</button></td>
+                                                                        <td><button type="button"  class="btn btn-primary p-1"  value="3">3</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><button type="button"  class="btn btn-primary p-1" value="4">4</button></td>
+                                                                        <td><button type="button"  class="btn btn-primary p-1" value="5">5</button></td>
+                                                                        <td><button type="button"  class="btn btn-primary p-1" value="6">6</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><button type="button"  class="btn btn-primary p-1" value="7">7</button></td>
+                                                                        <td><button type="button"  class="btn btn-primary p-1" value="8">8</button></td>
+                                                                        <td><button type="button"  class="btn btn-primary p-1" value="9">9</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <button type="button"  class="btn btn-primary p-1">Limpiar</button>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button type="button"  class="btn btn-primary p-1" value="0">0</button>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button type="button"  class="btn btn-danger p-1">Quitar</button>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        <div class="">
+                                                            <table>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td><button type="button"  class="btn btn-success btn-2"  value="5000">5.000</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><button type="button"  class="btn btn-success btn-2"  value="10000">10.000</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><button type="button"  class="btn btn-success btn-2"  value="20000">20.000</button></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><button type="button"  class="btn btn-success btn-2"  value="50000">50.000</button></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
