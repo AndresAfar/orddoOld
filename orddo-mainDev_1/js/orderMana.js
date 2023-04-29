@@ -1,3 +1,6 @@
+// variables
+var productsHTML = ``;
+
 //Cargar productos
 const loadProduct = async()=>{
     var res = await fetch("php/products/consulPro.php");
@@ -47,7 +50,7 @@ const selProduct = async(idproduct)=>{
     });
 
     var result = await res.json();
-    var productsHTML = ``;
+    
 
     if(result.dates != false){
         result.data.forEach(item => {
