@@ -5,6 +5,9 @@
 body{
     background-color: #fa9e7f38 !important;
 }
+.card-p{
+    
+}
 
 .btn-p{
     background-color: #EA7C4B !important;
@@ -74,6 +77,12 @@ body{
 .table-content-btn{
     margin: 0px auto;
 }*/
+
+.table-p{
+    display: block;
+    height: 220px;
+    overflow-y: auto;
+}
 
 @media (max-width:992px){
     .p-1{
