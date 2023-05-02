@@ -17,7 +17,7 @@
 
     <title>Productos - Orddo</title>
 </head>
-<body onload="loadProduct();" onload="checksesion();">
+<body onload=" loadProduct();">
 
     <header class="div-navbar">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -42,7 +42,8 @@
               </div>
               <div class="d-flex">
                 <div class="dropdown mx-5">
-                    <button class="btn btn-secondary dropdown-toggle" id="userVal" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                    <button class="btn btn-secondary dropdown-toggle" id="userVal" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    </button>
                     <ul class="dropdown-menu">
                       <li><button class="dropdown-item" onclick="singOut()">Cerrar Sesión</button></li>
                     </ul>
@@ -60,9 +61,9 @@
                 <div class="d-flex text-end justify-content-end">
                     <button class="btn btn-success m-3" data-bs-toggle="modal" data-bs-target="#addModal">Agregar producto</button>
                     <div class="text-end m-3">
-                        <form class="d-flex" style="width: 18rem;">
-                            <input type="text" id="search" placeholder="Buscar Producto" class="form-control me-2">
-                            <button type="submit" class="btn btn-p">Buscar</button>
+                        <form class="d-flex" style="width: 18rem;" method="get">
+                            <input type="text" id="search" name="search" placeholder="Buscar Producto" class="form-control me-2">
+                            <button type="button" name="enviar" class="btn btn-p" onclick="loadSearchProduct()">Buscar</button>
                         </form>
                     </div>
                 </div>
@@ -71,7 +72,7 @@
                         <ul id="container"></ul>
                     </div>
                 </div>
-                <table class="table table-sm">
+                <table class="table table-sm" id="table-refresh">
                     <thead class="table-dark">
                         <tr>
                             <td class="">Id</td>
@@ -132,6 +133,49 @@
     </div>
 
 
+    <!-- Modal editar producto-->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Editar producto</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formeditPro">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nombre: </label>
+                        <input type="text" class="form-control" id="ename" placeholder="Nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Precio: </label>
+                        <input type="number" class="form-control" id="eprice" placeholder="Valor">
+                    </div>
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Estado: </label>
+                        <select class="form-select" id="estatus">
+                            <option selected>Seleccione...</option>
+                            <option value="En uso">En uso</option>
+                            <option value="Sin uso">Sin uso</option>
+                          </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="descri" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="edescri" rows="3"></textarea>
+                    </div>
+                
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" id="productid">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" onclick="registerProduct()">Guardar</button>
+            </div>
+            </form>
+        </div>
+        </div>
+    </div>
+
+
 
 
 
@@ -150,4 +194,5 @@
     <script src="./js/orderMana.js"></script>
     
     <script src="./js/sesionVal.js"></script>
+    <script src="./js/jquery.js"></script>
 </html>
