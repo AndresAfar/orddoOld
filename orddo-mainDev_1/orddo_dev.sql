@@ -6,7 +6,7 @@ CREATE TABLE rol(
     nombreRol varchar(45),
     primary key(id_rol),
     unique(id_rol, nombreRol)
-);
+)auto_increment=1;
 
 CREATE TABLE usuario(
     id_usuario int not null auto_increment,
@@ -29,7 +29,7 @@ CREATE TABLE cliente(
     apellidoCliente varchar(45) not null,
     primary key(id_cliente),
     unique(id_cliente)
-);
+)auto_increment=1;
 
 
 CREATE TABLE producto(
