@@ -2,6 +2,9 @@ $(function () {
 
     $("#consult-result").hide();
     fecthEmplos();
+    fecthProdutcs();
+
+    
 
 
     //se consulta  de datos en el buscador de la pagina
@@ -28,7 +31,7 @@ $(function () {
             })
         }
     })
-
+    
     //Realiza registro llamando a una funcion fecthEmplos()
     $("#taks-form").submit(e =>{
         e.preventDefault();
@@ -84,7 +87,34 @@ $(function () {
         })
     }
 
+    function fecthProdutcs(){
+        $.ajax({
+            url: "php/products/consulPro.php",
+            type: "GET",
+            success: function(response){
+                const employees = JSON.parse(response);
+                let templete = ``;
+                employees.forEach(item =>
+                    {
+                        templete += `
+                        <tr>
+                            <td>${emplo.document}</td>
+                            <td>${item[1]}</td>
+                            <td>${item[2]}</td>
+                            <td>${item[3]}</td>
+                            <td>${item[4]}</td>
+                            <td><button class="btn btn-warning" onclick="editProduct(${item[0]})">Editar</button></td>
+                            <td><button class="btn btn-danger" onclick="deleteProduct(${item[0]})">Eliminar</button></td>
+                        </tr>
+                        `;
 
+                })
+                $("#productTbl").html(templete);
+            }
+        })
+    }
+
+    /*
     $(document).on('click', '.taskDelete', ()=>{
         /*if(confirm("¿Estas seguro(a) de eliminar esto?")){
             const element = $(this)[0].activeElement.parentElement.parentElement;
@@ -155,8 +185,8 @@ $(function () {
                     text: 'Ingresa una contraseña',
                 })
                 return;
-            }*/
-    })
+            }
+    })*/
 
 })
 

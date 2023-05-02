@@ -4,7 +4,6 @@ const registerUser= async()=>{
 
     var name = document.querySelector("#first-name").value;
     var lastName = document.querySelector("#last-name").value;
-    var email = document.querySelector("#email").value;
     var number = document.querySelector("#phone-number").value;
     var docu = document.querySelector("#document").value;
     var jobPos = document.querySelector("#jobPos").value;
@@ -13,7 +12,6 @@ const registerUser= async()=>{
     
     if(name.trim()==='' || 
     lastName.trim()==='' || 
-    email.trim()==='' || 
     number.trim()==='' || 
     docu.trim()==='' || 
     jobPos.trim()==='' || 
@@ -42,14 +40,6 @@ const registerUser= async()=>{
             icon: 'error',
             title: 'Oops...',
             text: 'Introduce un Apellido valido!'
-          })
-        return;
-    }
-    if(!valEmail(email)){
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Introduce un correo electronico valido!'
           })
         return;
     }
@@ -90,7 +80,6 @@ const registerUser= async()=>{
     const data = new FormData();
     data.append("name",name);
     data.append("lastName",lastName);
-    data.append("email",email);
     data.append("phone",number);
     data.append("document",docu);
     data.append("jobPos",jobPos);
@@ -110,7 +99,7 @@ const registerUser= async()=>{
             title: 'EXITO!',
             text: result.mess
           })
-        document.querySelector("#taks-form").reset();
+        document.querySelector("#formaddUser").reset();
     }else{
         Swal.fire({
             icon: 'error',
