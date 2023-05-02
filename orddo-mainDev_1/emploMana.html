@@ -18,7 +18,7 @@
 
     <title>Empleados - Orddo</title>
 </head>
-<body onload="checksesion();">
+<body onload=" loadEmployees(); loadroleEmplo();">
     <header class="div-navbar">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
@@ -119,9 +119,7 @@
                         <td class="">Documento</td>
                         <td class="">Nombre</td>
                         <td class="">Apellido</td>
-                        <td class="">Email</td>
                         <td class="">Teléfono</td>
-                        <td class="">Cargo</td>
                         <td class="">Editar</td>
                         <td class="">Eliminar</td>
                     </tr>
@@ -149,7 +147,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form id="formaddPro">
+            <form id="formaddUser">
                 <div class="row">
                     <div class="mb-3 col">
                         <label for="name" class="form-label">Nombre: </label>
@@ -158,12 +156,6 @@
                     <div class="mb-3 col">
                         <label for="price" class="form-label">Apellido: </label>
                         <input type="text" id="last-name" placeholder="Apellido" class="form-control my-1">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="mb-3 col">
-                        <label for="price" class="form-label">Correo electrónico: </label>
-                        <input type="text" id="email" placeholder="Correo Electronico" class="form-control my-1">
                     </div>
                 </div>
                 <div class="row">
@@ -181,9 +173,7 @@
                         <div class="input-group my-2">
                             <label class="input-group-text" for="inputGroupSelect01">Cargo</label>
                             <select class="form-select" id="jobPos" required="">
-                              <option selected>Seleccione...</option>
-                              <option value="Em. General">Em. General</option>
-                              <option value="Administrador">Administrador</option>
+                              
                             </select>
                         </div>
                     </div>
@@ -215,4 +205,5 @@
 <script src="./js/validationFuns.js"></script>
 <script src="./js/loginRes.js"></script>
 <script src="./js/sesionVal.js"></script>
+<script src="./js/emploMana.js"></script>
 </html>

@@ -16,7 +16,7 @@
 
     <title>Inicio - Orddo</title>
 </head>
-<body onload="loadProductTblShow(); ">
+<body onload="loadProductTblShow(); checksesion();">
 
     <header class="div-navbar">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -41,8 +41,7 @@
               </div>
               <div class="d-flex">
                 <div class="dropdown mx-5">
-                    <button class="btn btn-secondary dropdown-toggle" id="userVal" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-
+                    <button class="btn btn-secondary bg-dark dropdown-toggle" id="userVal" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     </button>
                     <ul class="dropdown-menu">
                       <li><button class="dropdown-item" onclick="singOut()">Cerrar Sesión</button></li>
@@ -56,19 +55,19 @@
     <div class="container-fluid my-5 mx-0">
         <div class="row p-4 mx-0 justify-content-center">
             <div class="col-8 d-flex">
-                <div class="card mx-5 card-p ">
+                <div class="card mx-5 div-card-p text-bg-dark">
                     <div class="card-body">
                         <h5 class="card-title">Empleados</h5>
                         <a href="emploMana.html" class="card-link">Ver</a>
                     </div>
                 </div>
-                <div class="card mx-5 card-p">
+                <div class="card mx-5 div-card-p text-bg-dark">
                     <div class="card-body">
                         <h5 class="card-title">Productos</h5>
                         <a href="productGes.html" class="card-link">Ver</a>
                     </div>
                 </div>
-                <div class="card mx-5 card-p" >
+                <div class="card mx-5 div-card-p text-bg-dark" >
                     <div class="card-body">
                         <h5 class="card-title">Usuarios</h5>
                         <a href="#" class="card-link">Ver</a>
