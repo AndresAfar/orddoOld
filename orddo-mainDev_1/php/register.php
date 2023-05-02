@@ -16,11 +16,14 @@ if($_POST){
     $consult_name = $_POST["name"];
     $consult_lastName = $_POST["lastName"];
     $consult_phone = $_POST["phone"];
-    $consult_email = $_POST["email"];
     $consult_jobPos = $_POST["jobPos"];
 
     $consult_username = $_POST["username"];
     $consult_password = $_POST["password"];
+
+
+    //casteo de string a entero
+    $casjobPos = (int)$consult_jobPos;
 
 
     $passwordEncrypt = $consult_password;
@@ -37,7 +40,7 @@ if($_POST){
 
     if($n === 0){
 
-        $sqlInsert2 = "INSERT INTO usuario(usuario, contrasena) VALUES('$consult_username', '$consult_password')";
+        $sqlInsert2 = "INSERT INTO usuario(rol_id_rol, documento, usuario, contrasena, nombre, apellido, telefono) VALUES('$casjobPos','$consult_document','$consult_username', '$consult_password','$consult_name','$consult_lastName','$consult_phone')";
 
         if($connection->query($sqlInsert2)=== true){
 

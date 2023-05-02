@@ -24,6 +24,8 @@ if($_POST){
         $val['username']=strtoupper($row['username']);
     }
 
+    $contraDes =password_verify($consult_password, PASSWORD_DEFAULT);
+
     $sqlConsult = "SELECT password FROM usuario WHERE usuario = '$consult_username'";
     $sqlResult = $connection->query($sqlConsult);
     $n2 = $sqlResult->num_rows;
