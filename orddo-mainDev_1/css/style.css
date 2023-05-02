@@ -5,8 +5,8 @@
 body{
     background-color: #fa9e7f38 !important;
 }
-.card-p{
-    
+.div-card-p{
+    width: 200px !important;
 }
 
 .btn-p{
@@ -33,9 +33,9 @@ body{
 }
 
 .section-order-mana{
+    overflow: scroll;
     height: 15rem;
-    width: auto !important;
-    word-wrap: break-word;
+    width: auto;
     border-radius: 2px;
     margin-bottom: 5px;
     padding: 5px;
@@ -77,12 +77,6 @@ body{
 .table-content-btn{
     margin: 0px auto;
 }*/
-
-.table-p{
-    display: block;
-    height: 220px;
-    overflow-y: auto;
-}
 
 @media (max-width:992px){
     .p-1{
