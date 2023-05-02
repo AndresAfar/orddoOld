@@ -14,7 +14,7 @@ if($_POST){
         //Cargar datos en tabla y para boton
         if($result -> num_rows>0){
             while($row=$result->fetch_array()){
-                $dates['data'][]=array($row[0],$row[1], $val['success']=true);
+                $dates['data'][]=array($row[0],$row[1],$row[3], $val['success']=true);
             }
         }else{
             $val['success']=false;
