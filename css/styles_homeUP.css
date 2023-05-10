@@ -1,0 +1,26 @@
+
+
+.card .card-body{
+    padding: 10px;
+}
+.section-Product, .section-order{
+    height: 210px;
+    overflow: scroll;
+    width: auto;
+}
+table{
+    text-align: center;
+}
+.avatar{
+    width: 32px;
+    height: 32px;
+    margin-right: 5px;
+}
+.btn-dropdown-p{
+    background-color: rgb(228, 225, 225);
+    width: 140px;
+    color: black;
+}
+
+
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/logo_Orddo.png">
+
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
+
+    <!-- Styles-->
+    <link rel="stylesheet" href="./css/styleIndex.css">
+
+    <title>Orddo</title>
+</head>
+<body>
+    <div>
+        <form id="form_log">
+            <div class="circulo"><img src="img/logo_Orddo.png" width="85px" heigth= "100px"alt=""></div>
+            
+            <p class="title">Iniciar Sesión</p>
+            <label>
+                <label class="labelText">Usuario: </label>
+                <input placeholder="usuario" type="text" id="user" name="usuario" min="5" maxlength="30">
+            </label>
+            <label>
+                <label class="labelText">Contraseña: </label>
+                <input placeholder="contraseña" type="password" id="password" name="password" min="5" maxlength="30">
+            </label>
+            <div class="container-check">
+                <input type="checkbox" class="showPass" onclick="showPass()">Mostrar Contraseña
+            </div>
+            <input type="button" class="btn btn-danger form-control btn-login" onclick="loginUser()" value="Ingresar">
+
+            <p name="warning"></p>
+        </form>
+    </div>
+</body>
+
+<script>
+    function showPass() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="./js/loginRes.js"></script>
+</html>
