@@ -8,14 +8,13 @@ $val['success']=array('success' =>false, 'mess'=>"");
 
 
 if($_POST){
-    $consult_id = $_POST["id"];
+    $consult_id = $_POST["productid"];
     $consult_name = $_POST["name"];
     $consult_price = $_POST["price"];
     $consult_status = $_POST["status"];
     $consult_descri = $_POST["descri"];
 
 
-    $parseID = (int)$consult_id;
     $parseID = (int)$consult_id;
 
     

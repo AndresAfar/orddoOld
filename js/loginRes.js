@@ -123,23 +123,6 @@ const loginUser= async()=>{
           })
         return;
     }
-    /*
-    if(!valUser(user)){
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Introduce un usuario valido!'
-          })
-        return;
-    }
-    if(!valPass(password)){
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Introduce una contraseña valida!'
-          })
-        return;
-    }*/
 
      //CONSULTAR A BASE DE DATOS PARA LOGIN
      const data = new FormData();

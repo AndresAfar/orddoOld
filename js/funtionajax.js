@@ -55,7 +55,7 @@ $(function () {
     });
 
 
-
+    //eliminar producto de labla pedido
     $(document).on('click', '.btn-p-delete', function(event) {
         event.preventDefault();
         const element = $(this)[0].activeElement;
@@ -66,8 +66,8 @@ $(function () {
         $(this).closest('tr').remove();
     });
 
-
-
+    /*
+    //realizar actualizaciones en editar producto
     $(document).on('click','.btn-upload', function(event){
         event.preventDefault();
         const postData = {
@@ -94,6 +94,6 @@ $(function () {
                 }
             }
         })
-    });
+    });*/
 
 })
