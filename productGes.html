@@ -19,39 +19,41 @@
 
     <title>Productos - Orddo</title>
 </head>
-<body onload=" loadProduct(); checksesion();">
+<body onload=" loadProduct();">
 
     <header class="div-navbar">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-              <img src="img/Logo.png" alt="Logo" width="185" height="80" class="d-inline-block align-text-top mx-3">
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <a class="navbar-brand" href="#">MENÚ</a>
-                <ul class="navbar-nav">
+                <a class="navbar-brand" href="homeUP.html"><img src="img/Logo.png" alt="Logo" width="185" height="80" class="d-inline-block align-text-top mx-3"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" href="homeUP.html">Inicio</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="order.html">Pedidos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="emploMana.html">Gestión Empleados</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"></a>
-                    </li>
-                </ul>
-              </div>
-              <div class="d-flex">
-                <div class="dropdown mx-5">
-                    <button class="btn dropdown-toggle btn-dropdown-p" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img class="avatar" src="img/logoAdmin.png"><span id="userVal"></span></i></button>
-                    <ul class="dropdown-menu">
-                      <li><button class="dropdown-item" onclick="singOut()">Cerrar Sesión</button></li>
-                    </ul>
-                  </div>
-              </div>
+                      <li class="nav-item">
+                          <a class="nav-link" href="order.html">Pedidos</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="emploMana.html">Gestión Empleados</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link disabled">Disabled</a>
+                      </li>
+                  </ul>
+                    <form class="d-flex" role="dropdown">
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle btn-dropdown-p" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img class="avatar" src="img/logoAdmin.png"><span id="userVal"></span></i></button>
+                            <ul class="dropdown-menu">
+                            <li><button class="dropdown-item" onclick="singOut()">Cerrar Sesión</button></li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
             </div>
-          </nav>
+        </nav>
     </header>
 
     <div class="card text-center m-4">
@@ -59,11 +61,13 @@
             Productos
         </div>
         <div class="card-body">
-                <div class="d-flex text-end justify-content-end">
-                    <button class="btn btn-success m-3" data-bs-toggle="modal" data-bs-target="#addModal">Agregar producto</button>
-                    <div class="text-end m-3">
-                        <form class="d-flex" style="width: 18rem;" method="get">
-                            <input type="text" id="search" name="search" placeholder="Buscar Producto" class="form-control me-2">
+                <div class="row d-flex m-2 div-content-btn-search" style="float: right;">
+                    <div class="col">
+                        <button class="btn btn-success mx-2 btn-addPro" data-bs-toggle="modal" data-bs-target="#addModal">Agregar producto</button>
+                    </div>
+                    <div class="col">
+                        <form class="d-flex inputFormSearch" method="get">
+                            <input type="text" id="search" name="search" placeholder="Buscar Producto" class="form-control me-2 intsearch">
                             <button type="button" name="enviar" class="btn btn-p" onclick="loadSearchProduct()">Buscar</button>
                         </form>
                     </div>
@@ -73,62 +77,64 @@
                         <ul id="container"></ul>
                     </div>
                 </div>
-                <table class="table table-sm" id="table-refresh">
-                    <thead class="table-dark">
-                        <tr>
-                            <td class="">Id</td>
-                            <td class="">Nombre</td>
-                            <td class="">Descripción</td>
-                            <td class="">Precio</td>
-                            <td class="">Estado</td>
-                            <td class="">Editar</td>
-                            <td class="">Eliminar</td>
-                        </tr>
-                    </thead>
-                    <tbody id="productTbl">
-    
-                    </tbody>
-                </table>
+                <div class="section-Product" style="height: 310px;">
+                    <table class="table table-sm" id="table-refresh">
+                        <thead class="table-dark">
+                            <tr>
+                                <td class="">Id</td>
+                                <td class="">Nombre</td>
+                                <td class="">Descripción</td>
+                                <td class="">Precio</td>
+                                <td class="">Estado</td>
+                                <td class="">Editar</td>
+                                <td class="">Eliminar</td>
+                            </tr>
+                        </thead>
+                        <tbody id="productTbl">
+        
+                        </tbody>
+                    </table>
+                </div>
             </div>
     </div>
 
     <!-- Modal -->
     <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar producto</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="formaddPro">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Nombre: </label>
-                            <input type="text" class="form-control" id="name" placeholder="Nombre">
-                        </div>
-                        <div class="mb-3">
-                            <label for="price" class="form-label">Precio: </label>
-                            <input type="number" class="form-control" id="price" placeholder="Valor">
-                        </div>
-                        <div class="mb-3">
-                            <label for="status" class="form-label">Estado: </label>
-                            <select class="form-select" id="status">
-                                <option selected>Seleccione...</option>
-                                <option value="En uso">En uso</option>
-                                <option value="Sin uso">Sin uso</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="descri" class="form-label">Descripción</label>
-                            <textarea class="form-control" id="descri" rows="3"></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-success" onclick="registerProduct()">Guardar</button>
-                </div>
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar producto</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <div class="modal-body">
+                <form id="formaddPro">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nombre: </label>
+                        <input type="text" class="form-control" id="name" placeholder="Nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Precio: </label>
+                        <input type="number" class="form-control" id="price" placeholder="Valor">
+                    </div>
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Estado: </label>
+                        <select class="form-select" id="status">
+                            <option selected>Seleccione...</option>
+                            <option value="En uso">En uso</option>
+                            <option value="Sin uso">Sin uso</option>
+                          </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="descri" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="descri" rows="3"></textarea>
+                    </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-success" onclick="registerProduct()">Guardar</button>
+            </div>
+            </form>
+        </div>
         </div>
     </div>
 
@@ -136,47 +142,53 @@
     <!-- Modal editar producto-->
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Editar producto</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="formeditPro">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Id: </label>
-                            <input type="number" class="form-control" id="eid" disabled>
-                        </div>
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Nombre: </label>
-                            <input type="text" class="form-control" id="ename" placeholder="Nombre">
-                        </div>
-                        <div class="mb-3">
-                            <label for="price" class="form-label">Precio: </label>
-                            <input type="number" class="form-control" id="eprice" placeholder="Valor">
-                        </div>
-                        <div class="mb-3">
-                            <label for="status" class="form-label">Estado: </label>
-                            <select class="form-select" id="estatus">
-                                <option selected>Seleccione...</option>
-                                <option value="En uso">En uso</option>
-                                <option value="Sin uso">Sin uso</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="descri" class="form-label">Descripción</label>
-                            <textarea class="form-control" id="edescri" rows="3"></textarea>
-                        </div>  
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <input type="hidden" id="productid">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-success btn-upload" onclick="uploadProduct();">Actualizar</button>
-                </div>
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Editar producto</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <div class="modal-body">
+                <form id="formeditPro">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Id: </label>
+                        <input type="number" class="form-control" id="eid" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nombre: </label>
+                        <input type="text" class="form-control" id="ename" placeholder="Nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Precio: </label>
+                        <input type="number" class="form-control" id="eprice" placeholder="Valor">
+                    </div>
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Estado: </label>
+                        <select class="form-select" id="estatus">
+                            <option selected>Seleccione...</option>
+                            <option value="En uso">En uso</option>
+                            <option value="Sin uso">Sin uso</option>
+                          </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="descri" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="edescri" rows="3"></textarea>
+                    </div>
+                
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" id="productid">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success btn-upload">Actualizar</button>
+            </div>
+            </form>
+        </div>
         </div>
     </div>
+
+
+
+
+
     <footer class="container-fluid position-fixed bottom-0 end-0 bg-dark text-white">
         <div class="footer-p container text-center p-3">
             <p>ORDDO 2023 © Todos los derechos reservados</p>
@@ -186,12 +198,13 @@
 </body>
 
     <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="./js/orderMana.js"></script>
+    
     <script src="./js/sesionVal.js"></script>
     <script src="./js/funtionajax.js"></script>
 </html>
