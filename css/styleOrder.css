@@ -1,0 +1,59 @@
+.grid_container{
+    display: grid;
+    justify-content: center;  
+    align-content: center;
+    min-height: 5vh;
+    max-height: 80vh;
+    width: 348px;
+    grid-template-columns: repeat(4, 5.5rem);
+ 
+  }
+  
+  .grid_container > button{
+    cursor: pointer;
+    font-size: 1.5rem;
+    border: none;
+    outline: none;
+    background-color: #111;
+    color: #eee;
+  }
+  
+  .grid_container button:hover{
+    background-color: #eee;
+    color: #111;
+  }
+  
+  .grid_container  .operator{
+    background: #4006c7de;
+  }
+  
+  .grid_container .operator_result{
+    background: rgb(3, 87, 197);
+  }
+  
+  .span-two{
+    grid-column: span 2;
+  }
+  
+  .grid_container > .output{
+    grid-column: 1 / -1;
+    background: #222; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: 10px;
+    height: 45px;
+    word-wrap:break-word;
+    word-break: break-all;
+  }
+  
+  .grid_container .output .previous-operand{
+    color: rgb(255, 255, 255, .75);
+    font-size: 1.5rem;
+  }
+  
+  .grid_container .output .current-operand{
+    color: white;
+    font-size: 1.5rem;
+  }
