@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/styles_homeUP.css">
+    <link rel="stylesheet" href="./css/styleOrder.css">
 
     <!-- Icons onload=" loadBtnProduct(); "-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -22,7 +23,7 @@
     
     <title>Pedidos - Orddo</title>
 </head>
-<body onload="checksesion();">
+<body >
 
     <header class="div-navbar">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -180,7 +181,7 @@
                                                                             <button type="button"  class="btn btn-primary p-1" value="0">0</button>
                                                                         </td>
                                                                         <td>
-                                                                            <button type="button"  class="btn btn-warning p-1 btn-order"  value="" data-bs-toggle="modal" data-bs-target="#finorder">Ordenar</button>
+                                                                            <button type="button"  class="btn btn-warning p-1 btn-order"  value="" data-bs-toggle="modal" data-bs-target="#finorder">Pagar</button>
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
@@ -231,68 +232,72 @@
     <!-- Modal -->
     <div class="modal fade" id="finorder" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+        <div class="modal-content p-3">
             <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Pago de Pedido</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="width: 380px; margin: auto;">
                 <form id="formaddPro">
                     <div class="mb-3">
-                        <label for="num_comanda" class="form-label" id="num_comanda">Comanda: </label>
+                        <label for="price" class="form-label" id="Total_pedido">Total a Pagar: </label>
                     </div>
                     <div class="mb-3">
-                        <label for="price" class="form-label" id="Total_pedido">Total: </label>
+                        <label for="price" class="form-label" id="Total_pedido">Se recibe: </label>
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control text-bg-secondary labelInputNum" style="font-size: large;" id="labelInputNum" disabled>
-                        <div class="">
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td><button type="button"  class="btn btn-primary p-1"  value="1">1</button></td>
-                                        <td><button type="button"  class="btn btn-primary p-1"  value="2">2</button></td>
-                                        <td><button type="button"  class="btn btn-primary p-1"  value="3">3</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><button type="button"  class="btn btn-primary p-1" value="4">4</button></td>
-                                        <td><button type="button"  class="btn btn-primary p-1" value="5">5</button></td>
-                                        <td><button type="button"  class="btn btn-primary p-1" value="6">6</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><button type="button"  class="btn btn-primary p-1" value="7">7</button></td>
-                                        <td><button type="button"  class="btn btn-primary p-1" value="8">8</button></td>
-                                        <td><button type="button"  class="btn btn-primary p-1" value="9">9</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <button type="button"  class="btn btn-primary p-1">Limpiar</button>
-                                        </td>
-                                        <td>
-                                            <button type="button"  class="btn btn-primary p-1" value="0">0</button>
-                                        </td>
-                                        <td>
-                                            <button type="button"  class="btn btn-warning p-1 btn-order"  value="" data-bs-toggle="modal" data-bs-target="#finorder">Ordenar</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <label for="price" class="form-label" id="Total_pedido">Cambio: </label>
+                    </div>
+                    <div class="mb-3">
+                        <div class="grid_container">
+                            <div class="output">
+                                <div data-previous class="previous-operand"></div>
+                                <div data-current class="current-operand"></div>
+                            </div>
+                            <div class="">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td><button data-number type="button"  class="btn btn-primary p-1"  value="1">1</button></td>
+                                            <td><button data-number type="button"  class="btn btn-primary p-1"  value="2">2</button></td>
+                                            <td><button data-number type="button"  class="btn btn-primary p-1"  value="3">3</button></td>
+                                            <td><button data-number type="button"  class="btn btn-success btn-2"  value="10000">10.000</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><button data-number type="button"  class="btn btn-primary p-1" value="4">4</button></td>
+                                            <td><button data-number type="button"  class="btn btn-primary p-1" value="5">5</button></td>
+                                            <td><button data-number type="button"  class="btn btn-primary p-1" value="6">6</button></td>
+                                            <td><button data-number type="button"  class="btn btn-success btn-2"  value="20000">20.000</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><button data-number type="button"  class="btn btn-primary p-1" value="7">7</button></td>
+                                            <td><button data-number type="button"  class="btn btn-primary p-1" value="8">8</button></td>
+                                            <td><button data-number type="button"  class="btn btn-primary p-1" value="9">9</button></td>
+                                            <td><button data-number type="button"  class="btn btn-success btn-2"  value="50000">50.000</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <button data-all-clears type="button" class="btn btn-primary p-1 span-two operator_atribute">AC</button>
+                                            </td>
+                                            <td>
+                                                <button data-delete type="button" class="btn btn-primary p-1 operator_atribute">Del</button>
+                                            </td>
+                                            <td>
+                                                <button data-number type="button"  class="btn btn-primary p-1" value="0">0</button>
+                                            </td>
+                                            <td>
+                                                <button type="button"  class="btn btn-warning btn-2 btn-order"  value="" data-bs-toggle="modal" data-bs-target="#calcular">Calcular</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                        <div class="">
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td><button type="button"  class="btn btn-success btn-2"  value="10000">10.000</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><button type="button"  class="btn btn-success btn-2"  value="20000">20.000</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><button type="button"  class="btn btn-success btn-2"  value="50000">50.000</button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        <button type="button"  class="btn btn-danger p-2"  value="" data-bs-toggle="modal" data-bs-target="#finorder">Finalizar</button>
                     </div>
                 </form>
             </div>
@@ -316,4 +321,5 @@
     <script src="./js/sesionVal.js"></script>
     <script src="./js/orderMana.js"></script>
     <script src="./js/funtionajax.js"></script>
+    <script src="./js/main.js"></script>
 </html>
