@@ -124,9 +124,6 @@ const uploadProduct=async()=>{
     var estatus = document.querySelector("#estatus").value;
     var edescri = document.querySelector("#edescri").value;
 
-
-    console.log(eid, ename, eprice, estatus, edescri);
-
     if(ename==='' || 
     eprice==='' || 
     estatus==='' ||

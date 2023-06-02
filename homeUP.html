@@ -21,7 +21,7 @@
 
     <title>Inicio - Orddo</title>
 </head>
-<body onload="loadProductTblShow();">
+<body onload="loadProductTblShow(); checksesion();">
 
     <header class="div-navbar">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -38,7 +38,7 @@
                       <li class="nav-item">
                           <a class="nav-link" href="order.html">Pedidos</a>
                       </li>
-                      <li class="nav-item">
+                      <li class="nav-item" id="sec-gesEmplo">
                           <a class="nav-link" href="emploMana.html">Gestión Empleados</a>
                       </li>
                       <li class="nav-item">
@@ -60,7 +60,7 @@
 
     <div class="container-fluid my-5 mx-0">
         <div class="row justify-content-center">
-            <div class="column m-3" style="width: 200px;">
+            <div class="column" style="width: 200px;">
                 <div class="card div-card-p text-bg-dark">
                     <div class="card-body">
                         <h5 class="card-title">Empleados</h5>
@@ -68,7 +68,7 @@
                     </div>
                 </div>
             </div>
-            <div class="column m-3" style="width: 200px;">
+            <div class="column" style="width: 200px;">
                 <div class="card div-card-p text-bg-dark">
                     <div class="card-body">
                         <h5 class="card-title">Productos</h5>
@@ -76,7 +76,7 @@
                     </div>
                 </div>
             </div>
-            <div class="column m-3" style="width: 200px;">
+            <div class="column" style="width: 200px;">
                 <div class="card div-card-p text-bg-dark" >
                     <div class="card-body">
                         <h5 class="card-title">Usuarios</h5>

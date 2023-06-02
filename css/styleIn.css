@@ -1,0 +1,203 @@
+*{
+    margin: 0px;
+    padding: 0;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+body{
+    background-color: #EAAD94;
+}
+
+.header{
+    width: 100%;
+    max-width: 96em;
+    min-width: 25;
+    height: 130px;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+.logo{
+    float: left;
+    margin: 10px;
+}
+.logoAdmin{
+    float: right;
+    margin: 20px;
+    padding: 10px;
+}
+.rol{
+    float: right;
+    margin: 0px;
+    padding: 20px;
+    padding-top: 20px;
+    color: black;
+}
+.logoOrddo{
+    width: 300px;
+}
+.logoRol{
+    width: 60px;
+    margin: 2px;
+}
+.conteiner{
+    float: left;
+    min-height: 80vh;
+    width: 190px;
+    background-color: #EA7C4B;
+}
+nav{
+    padding-top: 20px;
+    float: left;
+}
+nav li{
+    list-style: none;
+    text-align:center, justify;
+    padding: 5px;
+}
+nav li a{
+    text-decoration: none;
+    font-size: 18px;
+    color: #FFFFFF;
+    padding-right: 75px;
+    padding-left: 35px;
+}
+li:hover{
+    background-color: #b76846;
+    cursor: pointer;
+}
+p{
+
+    padding-left: 20px;
+    color: #FFFFFF;
+    font-size: 25px;
+}
+
+.con-ini{
+    position: absolute;
+    width: 81em;
+    height: 34em;
+    left: 13em;
+    top: 10em;
+}
+.div-emple{
+    position: absolute;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    border-top: 5px solid;
+    border-color: #EA7C4B;
+    height: 150px;
+    width: 300px;
+    top: 30px;
+    left: 150px;
+}
+.div-pedi{
+    position: absolute;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    border-top: 5px solid;
+    border-color: #EA7C4B;
+    height: 150px;
+    width: 300px;
+    top: 30px;
+    left: 600px;
+}
+
+
+@media (max-width:1200px){
+    
+    .div-emple{
+        height: 100px;
+        width: 250px;
+        top: 50px;
+        left: 50px;
+    }
+    .div-pedi{
+        height: 100px;
+        width: 250px;
+        top: 50px;
+        left: 350px;
+    }
+}
+@media (max-width:992px){
+    .con-ini{
+        background-color: red;
+        top: 120px;
+        left: 180px;
+        width: 310px;
+    }
+    .div-emple{
+        top: 30px;
+        left: 30px;
+    }
+    .div-pedi{
+        top: 160px;
+        left: 30px;
+    }
+    .logoAdmin{
+        position: absolute;
+        height: 50px;
+        left:300px;
+    }
+    .conteiner{
+        width: 150px;
+    }
+    nav{
+        padding-top: 20px;
+        float: left;
+    }
+    nav li{
+        list-style: none;
+        text-align:center, justify;
+        padding: 5px;
+    }
+    nav li a{
+        text-decoration: none;
+        font-size: 10px;
+        padding-right: 70px;
+    }
+    p{
+        font-size: 15px;
+    }
+    .rol{
+        font-size: 15px;
+        padding-top: 10px;
+    }
+    .logoOrddo{
+        width: 200px;
+    }
+    .logoRol{
+        width: 40px;
+        margin: 2px;
+    }
+    .header{
+        height:100px;
+        width: 992;
+    }
+
+}
+@media (max-width:768px){
+    p{
+        font-size: 15px;
+    }
+    .div-emple{
+        top: 90px;
+        left: 100px;
+    }
+    .div-pedi{
+        top: 230px;
+        left: 100px;
+    }
+    .logoOrddo{
+        width: 110px;
+        height: 50px;
+    }
+    .logoRol{
+        width: 30px;
+        height: 30px;
+    }
+    
+
+}
+@media(max-width:576){
+
+}

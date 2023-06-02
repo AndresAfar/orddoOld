@@ -20,7 +20,7 @@
 
     <title>Empleados - Orddo</title>
 </head>
-<body onload=" loadEmployees(); loadroleEmplo(); checksesion();">
+<body onload=" loadEmployees(); loadroleEmplo(); checksesion(); checkpremision();">
     <header class="div-navbar">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
           <div class="container-fluid">
@@ -211,7 +211,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form id="formaddUser">
+            <form id="formeditUser">
                 <div class="row">
                     <div class="mb-3 col">
                         <label for="name" class="form-label">Nombre: </label>
@@ -255,7 +255,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success" onclick="registerUser()">Registrar</button>
+                <button type="button" class="btn btn-success" onclick="uploadUser()">Actualizar</button>
             </div>
         </form>
     </div>

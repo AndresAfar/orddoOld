@@ -1,33 +1,53 @@
-body{
-    margin: 0;
+*{
+    margin: 0px;
     padding: 0;
     font-family: 'Barlow Semi Condensed', sans-serif;
+}
+body{
+    background-color: #EAAD94;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 80vh;
-    background-color: #EAAD94;
 }
+
 form{
-    display: flex;
+    
     flex-direction: column;
     background-color: #C9BDBC;
     text-align: center;
     padding: 20px 25px;
     border-radius: 5px;
-    width: 250px;
 }
 form .title{
     color: #FFFFFF;
     font-size: 25px;
     margin-top: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+}
+.circulo{
+    
+    background: #FFFFFF;
+    margin: 5px;
+    margin-left: 95px;
+    width: 150px;
+    height: 150px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+img{
+    margin-top: 15px;
+    margin-left: 5px;
+    height: 120px;
+    width:"85px";
 }
 form label{
-    margin-bottom: 10px;
+    margin-bottom: 25px;
 }
 form label input{
-    height: 25px;
+    height: 30px;
+    margin: 5px;
     outline: none;
     border-radius: 3px;
     border: none;
@@ -35,46 +55,25 @@ form label input{
     background-color: #917873;
     padding: 0 5px;
     font-size: 15px;
-    width: 240px;
 }
 form label input::placeholder{
     color: #FFFFFF;
 }
-
-.circulo {
-    margin: 0;
-    margin-left: 50px;
-    width: 150px;
-    height: 150px;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-    background: #FFFFFF;
-}
-
-img{
-    margin-top: 15px;
-    margin-left: 5px;
-    height: 120px;
-}
-a{
-    color: #FFFFFF;
-    margin: 11px;
-    text-align:initial;
-}
-form .btn-login{
+form button{
     color: #FFFFFF;
     border: none;
     border-radius: 3px;
+    width: 97%;
     background-color: #EA7C4B;
-    padding: 5px 10px;
     margin-top: 10px;
+    padding: 5px 10px;
     cursor: pointer;
     font-size: 15px;
 }
-.labelText{
+.iper{
+    width: 140px;
+    padding: 0px;
+}
+a{
     color: #FFFFFF;
-    float: left;
-    height: 8px;
-    margin-bottom: 15px;
 }

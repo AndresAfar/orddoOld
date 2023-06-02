@@ -17,6 +17,7 @@ CREATE TABLE usuario(
     nombre varchar(45) not null,
     apellido varchar(45) not null,
     telefono varchar(15) not null,
+    fechaRegistroUser date not null,
     primary key(id_usuario),
     unique(usuario, documento),
     foreign key(rol_id_rol) references rol(id_rol)
@@ -72,15 +73,15 @@ CREATE TABLE reporte(
 
 
 #pedidos
-alter table pedido add foreign key(usu_id_usuario) references usuario(id_usuario);
-alter table pedido add foreign key(pro_id_producto) references pedidos_producto(pro_id_producto2);
-alter table pedido add foreign key(cli_id_cliente) references cliente(id_cliente);
+alter table orddo_dev.pedido add foreign key(usu_id_usuario) references usuario(id_usuario);
+alter table orddo_dev.pedido add foreign key(pro_id_producto) references pedidos_producto(pro_id_producto2);
+alter table orddo_dev.pedido add foreign key(cli_id_cliente) references cliente(id_cliente);
 
 
 
 #reporte
-alter table reporte add foreign key(pedido_id_pedido) references pedido(id_pedido);
+alter table orddo_dev.reporte add foreign key(pedido_id_pedido) references pedido(id_pedido);
 
 #pedidos_producto
-alter table pedidos_producto add foreign key(pedido_id_pedido2) references pedido(id_pedido);
-alter table pedidos_producto add foreign key(pro_id_producto2) references producto(id_producto);
+alter table orddo_dev.pedidos_producto add foreign key(pedido_id_pedido2) references pedido(id_pedido);
+alter table orddo_dev.pedidos_producto add foreign key(pro_id_producto2) references producto(id_producto);

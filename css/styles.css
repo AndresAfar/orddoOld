@@ -21,10 +21,10 @@ form .title{
     color: #FFFFFF;
     font-size: 25px;
     margin-top: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 form label{
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 form label input{
     height: 25px;
@@ -57,24 +57,25 @@ img{
     margin-left: 5px;
     height: 120px;
 }
+.iper{
+    font-size: 15px;
+    width: 250px;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 5px;
+}
 a{
     color: #FFFFFF;
     margin: 11px;
     text-align:initial;
 }
-form .btn-login{
+.btningresar, input{
     color: #FFFFFF;
     border: none;
     border-radius: 3px;
     background-color: #EA7C4B;
     padding: 5px 10px;
-    margin-top: 10px;
     cursor: pointer;
     font-size: 15px;
 }
-.labelText{
-    color: #FFFFFF;
-    float: left;
-    height: 8px;
-    margin-bottom: 15px;
-}
+

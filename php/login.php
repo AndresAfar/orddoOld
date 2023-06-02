@@ -13,7 +13,7 @@ $val['success']=array('success' =>false, 'mess'=>"", 'username'=>"");
 if($_POST){
 
     $consult_username = $_POST["username"];
-    $consult_password = $_POST["password"];
+    $consult_password = md5($_POST["password"]);
 
 
     $sqlConsult2 = "SELECT * FROM usuario WHERE usuario = '$consult_username'";
@@ -24,21 +24,29 @@ if($_POST){
         $val['username']=strtoupper($row['usuario']);
     }
 
-    $contraDes =password_verify($consult_password, PASSWORD_DEFAULT);
+    $sqlConsult3 = "SELECT rol_id_rol FROM usuario WHERE usuario = '$consult_username'";
+    $sqlResult3 = $connection->query($sqlConsult3);
+    $n = $sqlResult3->num_rows;
+    if($n > 0){
+        $row = $sqlResult3->fetch_array();
+        $val['rol']=$row['rol_id_rol'];
+    }
 
-    $sqlConsult = "SELECT contrasena FROM usuario WHERE usuario = '$consult_username'";
-    $sqlResult = $connection->query($sqlConsult);
-    $n2 = $sqlResult->num_rows;
-    $resgis = mysqli_fetch_assoc($sqlResult);
+    $sqlConsult = "SELECT * FROM usuario WHERE usuario = '$consult_username' AND  contrasena = '$consult_password'";
+    //$sqlResult = $connection->query($sqlConsult);
+    $resutlado = mysqli_query($connection, $sqlConsult);
     
 
-    if($n2 > 0){
-        $val['success']=true;
-        $val['mess']="Bienvenido";
+    if($resutlado){
+        $row2 = mysqli_num_rows($resutlado);
+        if($row2!=0){
+            $val['success']=true;
+            $val['mess']="Bienvenido";
+        }
     }else{
         $val['success']=false;
         $val['mess']="Usuario o contrasena incorrecta";
-    }
+    } 
 }else{
     $val['success']=false;
     $val['mess']="Error al iniciar sesion";

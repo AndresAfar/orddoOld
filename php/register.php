@@ -26,13 +26,16 @@ if($_POST){
     $casjobPos = (int)$consult_jobPos;
 
 
-    $passwordEncrypt = $consult_password;
+    //$passwordEncrypt = $consult_password;
 
 
-    $hash = password_hash($passwordEncrypt, PASSWORD_BCRYPT, $options);
-    if ($hash === false) {
+    //$hash = password_hash($passwordEncrypt, PASSWORD_BCRYPT, $options);
+    /*if ($hash === false) {
         die('Error al encriptar la contraseña');
-    }
+    }*/
+
+    
+    $hash = md5($consult_password);
 
     $sql = "SELECT * FROM usuario WHERE usuario = '$consult_username'";
     $result = $connection->query($sql);
@@ -40,7 +43,7 @@ if($_POST){
 
     if($n === 0){
 
-        $sqlInsert2 = "INSERT INTO usuario(rol_id_rol, documento, usuario, contrasena, nombre, apellido, telefono) VALUES('$casjobPos','$consult_document','$consult_username', '$consult_password','$consult_name','$consult_lastName','$consult_phone')";
+        $sqlInsert2 = "INSERT INTO usuario(rol_id_rol, documento, usuario, contrasena, nombre, apellido, telefono) VALUES('$casjobPos','$consult_document','$consult_username', '$hash','$consult_name','$consult_lastName','$consult_phone')";
 
         if($connection->query($sqlInsert2)=== true){
 

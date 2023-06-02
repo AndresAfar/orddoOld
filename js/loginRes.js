@@ -114,7 +114,7 @@ const loginUser= async()=>{
     var user = document.querySelector("#user").value;
     var password = document.querySelector("#password").value;
 
-    if( user.trim()==='' || password.trim()===''){
+    if( user.trim()===''|| password.trim()===''){
 
         Swal.fire({
             icon: 'error',
@@ -144,6 +144,7 @@ const loginUser= async()=>{
            })
          document.querySelector("#form_log").reset();
          localStorage.setItem('username',result.username);
+         localStorage.setItem('rol',result.rol);
          setTimeout(()=>{
           window.location.href = "homeUP.html";
          },2000)
@@ -155,5 +156,4 @@ const loginUser= async()=>{
              text: result.mess
            })
      }
-
 }

@@ -35,6 +35,3 @@ DNI
 USUARIO
 
 /^[a-z0-9_-]{3,16}$/
-
-
-https://www.freecodecamp.org/espanol/news/como-crear-una-aplicacion-de-calculadora-html-desde-cero-usando-javascript/
