@@ -29,7 +29,7 @@ const loadEmployees = async()=>{
                 <td>${item[6]}</td>
                 <td>${item[7]}</td>
                 <td><button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModalEmplo" onclick="editEmplo(${item[0]})">Editar</button></td>
-                <td><button class="btn btn-danger" onclick="deleteEmplo(${item[0]})">Eliminar</button></td>
+                <td><button class="btn btn-danger" onclick="confirmDelete(${item[0]})">Eliminar</button></td>
             </tr>
         `;
     });
@@ -56,6 +56,9 @@ const deleteEmplo = async(id_emplo)=>{
             title: 'EXITO!',
             text: result.mess
           })
+        setTimeout(()=>{
+            reload();
+        },2000)
     }else{
         Swal.fire({
             icon: 'error',
@@ -180,6 +183,9 @@ const uploadUser= async()=>{
             text: result.mess
           })
         document.querySelector("#formaddUser").reset();
+        setTimeout(()=>{
+            reload();
+        },3000)
     }else{
         Swal.fire({
             icon: 'error',
@@ -187,4 +193,31 @@ const uploadUser= async()=>{
             text: result.mess
           })
     }
+}
+
+
+
+
+//recargar pagina
+function reload(){
+    window.location.href = window.location.href;
+}
+
+
+//funcion para confirmacion para eliminar producto 
+function confirmDelete(id){
+    Swal.fire({
+        title: '¿Estas seguro?',
+        text: "No podras revertir esto!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, Eliminar!',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            deleteEmplo(id);
+        }
+    })
 }

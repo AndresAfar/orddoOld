@@ -56,27 +56,46 @@
         </nav>
     </header>
 
-    <div class="card text-center m-4">
+    <div class="card m-4">
         <div class="card-header">
             Productos
         </div>
         <div class="card-body">
                 <div class="row d-flex m-2 div-content-btn-search" style="float: right;">
-                    <div class="col">
+                    <div class="col text-end">
                         <button class="btn btn-success mx-2 btn-addPro" data-bs-toggle="modal" data-bs-target="#addModal">Agregar producto</button>
                     </div>
-                    <div class="col">
-                        <form class="d-flex inputFormSearch" method="get">
+                    <div class="col text-end">
+                        <form class="d-flex inputFormSearch text-center" method="get">
                             <input type="text" id="search" name="search" placeholder="Buscar Producto" class="form-control me-2 intsearch">
                             <button type="button" name="enviar" class="btn btn-p" onclick="loadSearchProduct()">Buscar</button>
                         </form>
                     </div>
                 </div>
-                <div class="card my-4" id="consult-result">
-                    <div class="card-body">
-                        <ul id="container"></ul>
+                <div class="row mb-2">
+                    <div class="card" id="consult-result" style="visibility:hidden;">
+                        <div class="card-body">
+                            <div id="consult" class="section-Product p-0 m-0" style="height: 90px;">
+                                <table id="tblSearch" class="table table-responsive div-table-search" style="font-size: 14px; visibility:hidden;">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <td>Id</td>
+                                            <td>Nombre</td>
+                                            <td>Descripción</td>
+                                            <td>Precio</td>
+                                            <td>Estado</td>
+                                            <td>Acciones</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="showSearch" class="">
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
                 <div class="section-Product" style="height: 310px;">
                     <table class="table table-sm" id="table-refresh">
                         <thead class="table-dark">
@@ -178,7 +197,7 @@
             <div class="modal-footer">
                 <input type="hidden" id="productid">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success btn-upload">Actualizar</button>
+                <button type="button" class="btn btn-success btn-upload" onclick="uploadProduct()">Actualizar</button>
             </div>
             </form>
         </div>
@@ -204,6 +223,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="./js/orderMana.js"></script>
+    <script src="./js/tblShowAll.js"></script>
     
     <script src="./js/sesionVal.js"></script>
     <script src="./js/funtionajax.js"></script>

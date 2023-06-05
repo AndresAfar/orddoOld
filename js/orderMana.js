@@ -74,6 +74,9 @@ const registerProduct = async()=>{
             text: result.mess
           })
         document.querySelector("#formaddPro").reset();
+        setTimeout(()=>{
+            reload();
+        },3000)
     }else{
         Swal.fire({
             icon: 'error',
@@ -167,26 +170,6 @@ const uploadProduct=async()=>{
             text: result.mess
           })
     }
-}
-
-//buscador productos
-const loadSearchProduct = async()=>{
-    var res = await fetch("php/search.php");
-    var reGisHTML = ``;
-    var shoPro = await res.json();
-
-    shoPro.date.forEach(item => {
-        reGisHTML +=`
-            <tr>
-                <td>${item[0]}</td>
-                <td>${item[1]}</td>
-                <td>${item[2]}</td>
-                <td>${item[3]}</td>
-                <td>${item[4]}</td>
-            </tr>
-        `;
-    });
-    document.querySelector("#productTbl").innerHTML=reGisHTML;
 }
 
 //Cargar producto en boton
@@ -284,7 +267,7 @@ const loadOrderTblShow = async()=>{
     document.querySelector("#employeesTbl2").innerHTML=productsHTML;
 }
 
-//funcion para cargar productos editados
+//funcion para cargar productos editados en modal editar producto
 const editProduct=async(id_product)=>{
     const data = new FormData();
     data.append("productid",id_product);

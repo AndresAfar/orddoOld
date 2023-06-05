@@ -100,6 +100,9 @@ const registerUser= async()=>{
             text: result.mess
           })
         document.querySelector("#formaddUser").reset();
+        setTimeout(()=>{
+          reload();
+        },3000)
     }else{
         Swal.fire({
             icon: 'error',
@@ -156,4 +159,9 @@ const loginUser= async()=>{
              text: result.mess
            })
      }
+}
+
+//recargar pagina
+function reload(){
+  window.location.href = window.location.href;
 }
