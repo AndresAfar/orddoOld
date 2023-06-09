@@ -1,6 +1,9 @@
 $(function () {
 
-    let templete = ``;
+    
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || []; 
+
+
 
     //Crea boton de producto con la consulta sql en el archivo consulbtnPro.php
     $(document).on('click', '.btn-addPro-p', function(event){
@@ -10,7 +13,10 @@ $(function () {
             type: "GET",
             success: function(response){
                 const employees = JSON.parse(response);
+
                 let templete = ``;
+
+
                 employees.forEach(emplo =>
                     {
                         templete +=`
@@ -19,53 +25,206 @@ $(function () {
 
                 })
                 $("#btnProductSel").html(templete);
-            }
+            } 
+
+            
         })
+
     });
 
 
-    //Seleciona el boton para agregar a pedido
-    $(document).on('click','.btn-pro-p', ()=>{
-        const element = $(this)[0].activeElement;
+    
 
-        const id = $(element).attr("taskid");
+    //Seleciona el boton para agregar a pedido
+    $(document).on('click','.btn-pro-p', function(e) {
+
+        const element = e.target;
+
+        const id = $(this).attr("taskid");
+
+        console.log(id);                        
+
+                                    
+       // employees.push(emplo); 
+
+ 
         $.ajax({
             url: "php/order/showProOrder.php",
             data: { id },
             type: "POST",
-            success: function(response){
-                if(!response.error){
-                    const employees = JSON.parse(response);
-                    employees.forEach(emplo =>
-                        {
-                            templete += `
-                            <tr id="taskid" taskid = "${emplo.idbtnproduct}">
-                                <td>${emplo.nombreProducto}</td>
-                                <td>${emplo.precioProducto}</td>
-                                <td><button type="button" class="btn btn-outline-danger btn-p-delete" ><i class="bi bi-trash3-fill"></i></button></td>
-                            </tr>
-                            `;
 
-                    })
-                    $("#secOrder").html(templete);
+            success: function(response){
+                
+                if(!response.error){
+
+                    employees = JSON.parse(response);
+
+                    const repeat = carrito.some((repeatProduct) => repeatProduct.id === employees[0].idbtnproduct);
+
+                    contador= 1 ; 
+
+                    if(repeat){
+
+                        carrito.map((prod) =>{
+
+                            if(prod.id === employees[0].idbtnproduct){
+
+                                prod.cantidad++
+
+                            }
+
+                        }); 
+                    }else{
+                    
+                    carrito.push({
+
+                        id: employees[0].idbtnproduct , 
+
+                        nombre: employees[0].nombreProducto , 
+
+                        precio: employees[0].precioProducto , 
+
+                        cantidad: contador 
+
+                    });
+
+                    }
+
+
+                    mostrarProductosCarrito(); 
+
 
                 }
+
+
             }
-        })
+
+
+
+        });
+
     });
 
 
-    //eliminar producto de labla pedido
-    $(document).on('click', '.btn-p-delete', function(event) {
-        event.preventDefault();
-        const element = $(this)[0].activeElement;
-        const id = $(element).attr("taskid");
 
-        console.log(id);
 
-        $(this).closest('tr').remove();
-    });
+    const mostrarProductosCarrito = () => {
 
+        // Limpiar la tabla
+        $("#secOrder").empty();
+   
+       // Agregar los productos actualizados al carrito
+       carrito.forEach(producto => {
+           const templete = `
+               <tr class="product-row" taskid="${producto.id}">
+                   <td>${producto.nombre}</td>
+                   <td>${producto.precio}</td>
+                   <td class="restar"><span>-</span></td>
+                   <td class="cantidad">${producto.cantidad}</td>
+                   <td class="sumar"><span>+</span></td>
+                   <td>
+                       <button type="button" class="btn btn-outline-danger btn-p-delete" taskid="${producto.id}">
+                           <i class="bi bi-trash3-fill"></i>
+                       </button>
+                   </td>
+               </tr>
+           `;
+          $("#secOrder").append(templete);
+          $(".restar").css("cursor", "pointer");
+          $(".sumar").css("cursor", "pointer");
+
+       });
+
+       
+          $(".restar").on("click", function() {
+
+            const row = $(this).closest(".product-row");
+
+            const index = row.attr("taskid"); 
+
+            const cantidadElement = row.find(".cantidad");
+
+            const product = carrito.find(producto => producto.id === index); 
+
+
+            if (product && product.cantidad > 1) {
+
+
+                product.cantidad--;
+
+                cantidadElement.text(product.cantidad);
+
+                saveLocal();
+               
+              
+            }
+               
+          });
+
+          $(".sumar").on("click", function() {
+
+            const row = $(this).closest(".product-row");
+            const index = row.attr("taskid");
+            const cantidadElement = row.find(".cantidad");
+            const product = carrito.find(producto => producto.id === index);
+
+            if (product) {
+                product.cantidad++;
+                cantidadElement.text(product.cantidad);
+                saveLocal();
+            }
+            
+             });
+
+
+
+    }; 
+
+
+
+
+
+    const eliminarproducto = (e) => {
+
+        const button = $(e.currentTarget);
+
+        const selectedId = button.attr("taskid");
+
+        console.log(selectedId); 
+
+        
+        carrito = carrito.filter((carritoId) =>{
+
+            return carritoId.id !== selectedId ; 
+
+        });
+
+        saveLocal(); 
+
+        mostrarProductosCarrito(); 
+
+    }; 
+
+    const saveLocal = () => {
+
+        localStorage.setItem("carrito" , JSON.stringify(carrito));
+        localStorage.removeItem('carrito');
+
+        
+    }; 
+
+    //eliminar producto 
+    
+     $(document).on('click', '.btn-p-delete', function(e) {
+
+        e.preventDefault(); 
+
+        eliminarproducto(e); 
+
+     }); 
+
+
+   
     /*
     //realizar actualizaciones en editar producto
     $(document).on('click','.btn-upload', function(event){
@@ -96,4 +255,5 @@ $(function () {
         })
     });*/
 
-})
+}); 
+
