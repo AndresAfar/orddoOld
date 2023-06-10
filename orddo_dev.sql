@@ -92,3 +92,6 @@ INSERT INTO rol values (null, 'Administrador');
 INSERT INTO rol values (null, 'Em. General');
 
 INSERT INTO usuario(rol_id_rol, documento, usuario, contrasena, nombre, apellido, telefono) VALUES(1,'123456789','admin123', md5('Admin123_'),'Admin','Des','123445599');
+
+user: admin123
+pass: Admin123_
