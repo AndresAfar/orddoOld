@@ -85,3 +85,10 @@ alter table orddo_dev.reporte add foreign key(pedido_id_pedido) references pedid
 #pedidos_producto
 alter table orddo_dev.pedidos_producto add foreign key(pedido_id_pedido2) references pedido(id_pedido);
 alter table orddo_dev.pedidos_producto add foreign key(pro_id_producto2) references producto(id_producto);
+
+
+
+INSERT INTO rol values (null, 'Administrador');
+INSERT INTO rol values (null, 'Em. General');
+
+INSERT INTO usuario(rol_id_rol, documento, usuario, contrasena, nombre, apellido, telefono) VALUES(1,'123456789','admin123', md5('Admin123_'),'Admin','Des','123445599');
