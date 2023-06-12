@@ -39,9 +39,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="order.html">Pedidos</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
-                    </li>
                 </ul>
                   <form class="d-flex" role="dropdown">
                       <div class="dropdown">
@@ -56,81 +53,65 @@
       </nav>
   </header>
 
-<!--
-    <div class="conteiner my-5 mx-0">
-        <div class="row p-4 mx-0">
-             Styles
-            <div class="col-md-5">
-                <div class="card">
-                    <div class="card-body">
-                        <form id="taks-form">
-                            <h2>Registro Empleado</h2>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <input type="text" id="first-name" placeholder="Nombre" class="form-control my-2">
-                                    <input type="text" id="last-name" placeholder="Apellido" class="form-control my-2">
-                                </div>
-                                <div class="input-group">
-                                    <input type="text" id="email" placeholder="Correo Electronico" class="form-control my-2">
-                                </div>
-                                <div class="input-group">
-                                    <input type="text" id="phone-number" placeholder="Telefono" class="form-control my-2">
-                                    <input type="text" id="document" placeholder="Documento" class="form-control my-2">
-                                </div>
-                                <div class="input-group my-2">
-                                    <label class="input-group-text" for="inputGroupSelect01">Cargo</label>
-                                    <select class="form-select" id="jobPos">
-                                      <option selected>Seleccione...</option>
-                                      <option value="Em. General">Em. General</option>
-                                      <option value="Administrador">Administrador</option>
-                                    </select>
-                                </div>
-                                <div class="input-group">
-                                    <input type="text" id="user" placeholder="Usuario" class="form-control my-2">
-                                    <input type="text" id="password" placeholder="Contraseña" class="form-control my-2">
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-p text-center w-100 my-2">Registrar</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>-->
     <div class="card text-center m-4">
         <div class="card-header">
             Empleados
         </div>
         <div class="card-body">
-            <div class="d-flex text-end justify-content-end">
-                <button class="btn btn-success m-3" data-bs-toggle="modal" data-bs-target="#addModal">Agregar Empleado</button>
-                <div class="text-end m-3">
-                    <form class="d-flex" style="width: 18rem;">
-                        <input type="search" id="search" placeholder="Buscar empleado" class="form-control me-2">
-                        <button type="submit" class="btn btn-p">Buscar</button>
-                    </form>
-                </div>
-            </div>
-            <div class="card my-4" id="consult-result">
-                <div class="card-body">
-                    <ul id="container"></ul>
-                </div>
-            </div>
-            <table class="table table-sm ">
-                <thead class="table-dark">
-                    <tr>
-                        <td class="">Documento</td>
-                        <td class="">Nombre</td>
-                        <td class="">Apellido</td>
-                        <td class="">Teléfono</td>
-                        <td class="">Editar</td>
-                        <td class="">Eliminar</td>
-                    </tr>
-                </thead>
-                <tbody id="employeesTbl">
 
-                </tbody>
-            </table>
+            <div class="mb-4">
+                <div class="row d-flex m-2 div-content-btn-search" style="float: right;">
+                    <div class="col text-end">
+                        <button class="btn btn-success mx-2 btn-addPro" data-bs-toggle="modal" data-bs-target="#addModal">Agregar Empleado</button>
+                    </div>
+                    <div class="col text-end">
+                        <form class="d-flex inputFormSearch text-center" method="get">
+                            <input type="text" id="search" name="search" placeholder="Buscar Empleado" class="form-control me-2 intsearch">
+                            <button type="button" name="enviar" class="btn btn-p" onclick="loadSearchEmplo()">Buscar</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="row mb-2" style="height: 120px;">
+                    <div class="card" id="consult-result" style="visibility:hidden;">
+                        <div class="card-body">
+                            <div id="div-result" class="section-Product p-0 m-0" style="height: 110px; ">
+                                <table id="tblSearch" class="table table-responsive div-table-search" style="font-size: 14px;">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <td class="">Documento</td>
+                                            <td class="">Nombre</td>
+                                            <td class="">Apellido</td>
+                                            <td class="">Teléfono</td>
+                                            <td class="">Acciones</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="showSearch" class="">
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-Product" style="height: 310px;">
+                <table class="table table-sm">
+                    <thead class="table-dark">
+                        <tr>
+                            <td class="">Documento</td>
+                            <td class="">Nombre</td>
+                            <td class="">Apellido</td>
+                            <td class="">Teléfono</td>
+                            <td class="">Editar</td>
+                            <td class="">Eliminar</td>
+                        </tr>
+                    </thead>
+                    <tbody id="employeesTbl">
+    
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
@@ -272,4 +253,5 @@
 <script src="./js/loginRes.js"></script>
 <script src="./js/sesionVal.js"></script>
 <script src="./js/emploMana.js"></script>
+<script src="./js/tblShowAll.js"></script>
 </html>
