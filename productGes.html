@@ -19,7 +19,7 @@
 
     <title>Productos - Orddo</title>
 </head>
-<body onload=" loadProduct(); checksesion();">
+<body onload=" loadProduct(); checksesion(); session();">
 
     <header class="div-navbar">
           <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -36,12 +36,9 @@
                       <li class="nav-item">
                           <a class="nav-link" href="order.html">Pedidos</a>
                       </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="emploMana.html">Gestión Empleados</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link disabled">Disabled</a>
-                      </li>
+                      <li class="nav-item" id="sec-gesEmplo">
+                        <a class="nav-link" href="emploMana.html">Gestión Empleados</a>
+                    </li>
                   </ul>
                     <form class="d-flex" role="dropdown">
                         <div class="dropdown">
@@ -61,7 +58,7 @@
             Productos
         </div>
         <div class="card-body">
-                <div class="mb-4">
+            <div class="mb-4">
                 <div class="row d-flex m-2 div-content-btn-search" style="float: right;">
                     <div class="col text-end">
                         <button class="btn btn-success mx-2 btn-addPro" data-bs-toggle="modal" data-bs-target="#addModal">Agregar producto</button>
@@ -96,6 +93,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
                 <div class="section-Product" style="height: 310px;">
                     <table class="table table-sm" id="table-refresh">
