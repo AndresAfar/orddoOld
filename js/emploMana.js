@@ -86,6 +86,20 @@ const editEmplo=async(id_emplo)=>{
     document.querySelector("#elast-name").value=result.apellido;
     document.querySelector("#ephone-number").value=result.telefono;
     localStorage.setItem('id_Empleado', result.emploid);
+    
+    if(result.cargo == 'Em. General'){
+        roleHTML +=`
+            <option value="2" selected>Em .General</option>
+            <option value="1" >Administrador</option>
+        `;
+        document.querySelector("#ejobPos").innerHTML=roleHTML;
+    }else{
+        roleHTML +=`
+            <option value="1" selected>Administrador</option>
+            <option value="2">Em .General</option>
+        `;
+        document.querySelector("#ejobPos").innerHTML=roleHTML;
+    }
 }
 
 
