@@ -26,12 +26,12 @@ if($_POST){
 
     $sql2 = "SELECT * FROM rol WHERE id_rol = $rol";
     $result2= $connection->query($sql2);
+    $datas = array('data' => array());
 
+    //Cargar datos en tabla y para boton
     $row2=$result2->fetch_array();
 
-    $val['emploRol']=$row2[1];
-
-
+    $val['cargo']=$row2[1];
 
 }else{
     $val['success']=false;
