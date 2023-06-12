@@ -10,13 +10,13 @@ const loadSearchProduct = async()=>{
     var searchResult = ``;
 
     if(nameProduct===''){
-        infoDiv +=`
-        <div class="alert alert-info m-0" role="alert">
-            No se ha encontrado ninguna busqueda
-        </div>
-        `;
-        document.querySelector("#consult").innerHTML=infoDiv;
-        document.getElementById("consult-result").style.visibility = 'visible';
+        Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'El campo esta vacio',
+            showConfirmButton: false,
+            timer: 1300
+          })
     }else{
 
         const data = new FormData();
@@ -30,16 +30,15 @@ const loadSearchProduct = async()=>{
         var shoPro = await res.json();
         
         if(shoPro.data.length === 0){
-            infoDiv +=`
-            <div class="alert alert-info m-0" role="alert">
-                No se ha encontrado ninguna busqueda
-            </div>
-            `;
-            document.querySelector("#consult").innerHTML=infoDiv;
-            document.getElementById("consult-result").style.visibility = 'visible';
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: 'No se ha encontrado ningun producto',
+                showConfirmButton: false,
+                timer: 1300
+              })
         }else{
-            document.getElementById("consult-result").style.visibility = 'visible';
-            document.getElementById("tblSearch").style.visibility = 'visible';
+
             shoPro.data.forEach(item => {
                 searchResult +=`
                     <tr>
@@ -53,10 +52,11 @@ const loadSearchProduct = async()=>{
                 `;
             });
             document.querySelector("#showSearch").innerHTML=searchResult;
+            document.getElementById("consult-result").style.visibility = 'visible';
+            document.getElementById("div-result").style.visibility = 'visible';
         }
     }
 }
-
 
 
 
