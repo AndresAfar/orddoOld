@@ -190,7 +190,7 @@ $(function () {
 
         const selectedId = button.attr("taskid");
 
-        console.log(selectedId); 
+      
 
         
         carrito = carrito.filter((carritoId) =>{
