@@ -42,7 +42,7 @@ $(function () {
 
         const id = $(this).attr("taskid");
 
-        console.log(id);                        
+                               
 
                                     
        // employees.push(emplo); 
