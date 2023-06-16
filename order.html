@@ -67,7 +67,7 @@
         <div class="card-body">
                 <div class="row d-flex m-2 py-2 div-content-btn-search" style="float: right;">
                     <div class="col">
-                        <button class="btn btn-success my-3 btn-addPro-p" data-bs-toggle="modal" data-bs-target="#addModal">Agregar Pedido</button>
+                        <button class="btn btn-success my-3 btn-addPro-p" data-bs-toggle="modal" data-bs-target="#addModal" onclick="idEmplo()">Agregar Pedido</button>
                     </div>
                     <div class="col">
                         <form class="d-flex my-3" style="width: 18rem;">
@@ -118,12 +118,12 @@
                         <div class="conteiner-fluid">
                             <div class="row">
                                 <div class="mb-3 col-md-6">
-                                    <label for="firstname" class="form-label">Nombre Cliente: </label>
-                                    <input type="text" class="form-control" id="firstname" placeholder="Nombre">
+                                    <label for="documentCli" class="form-label">Documento: </label>
+                                    <input type="text" class="form-control" id="documentCli" placeholder="1122f44456" value="1031640217">
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label for="lastname" class="form-label">Apellido Cliente: </label>
-                                    <input type="text" class="form-control" id="lastname" placeholder="Apellido">
+                                    <label for="nameClient" class="form-label">Nombre Cliente: </label>
+                                    <input type="text" class="form-control" id="nameClient" placeholder="Juanito Perez" value="Andres">
                                 </div>
                             </div>
                             <div class="container">
@@ -157,7 +157,13 @@
                                                     </table>
                                                 </div>
                                                 <div class="btns-section container-fluid">
-                                                    <input type="text" class="form-control text-bg-secondary labelInputNum" style="font-size: large;" id="labelInputNum" disabled>
+                                                    <input type="number" class="form-control text-bg-secondary labelInputNum" style="font-size: large;" id="labelInputNum" disabled>
+                                                </div>
+                                                <div class="form-check my-2" style="width: 40%; float: right;">
+                                                    <input class="form-check-input" type="checkbox" value="" id="confirmOrder">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Confirmar Pedido
+                                                    </label>
                                                 </div>
                                             </div>
                                         </div>
@@ -177,7 +183,7 @@
                 </div>
                     <div class="modal-footer">
                         <button type="button"  class="btn btn-primary p-1">Limpiar</button>
-                        <button type="button"  class="btn btn-warning p-1 btn-order"  value="" data-bs-toggle="modal" data-bs-target="#finorder">Ordenar</button>
+                        <button type="button"  class="btn btn-warning p-1 btn-order"  id="finOr" value="" onclick="ConfirmOrder()">Ordenar</button>
                     </div>
                 </form>
             </div>
@@ -258,5 +264,8 @@
     <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
     <script src="./js/sesionVal.js"></script>
     <script src="./js/orderMana.js"></script>
+    <script src="./js/validationFuns.js"></script>
+    <script src="./js/emploMana.js"></script>
+    <script src="./js/orderRequest.js"></script>
     <script src="./js/funtionajax.js"></script>
 </html>
