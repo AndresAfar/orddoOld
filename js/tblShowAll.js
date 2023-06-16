@@ -1,12 +1,9 @@
 
 
 //Buscador productos
-
-
 const loadSearchProduct = async()=>{
 
     var nameProduct = document.querySelector("#search").value;
-    var infoDiv = ``;
     var searchResult = ``;
 
     if(nameProduct===''){
@@ -22,7 +19,7 @@ const loadSearchProduct = async()=>{
         const data = new FormData();
         data.append("nameProduct",nameProduct);
 
-        var res = await fetch("php/search.php", {
+        var res = await fetch("php/products/searchPro.php", {
             method:'POST',
             body: data
         });
@@ -57,6 +54,8 @@ const loadSearchProduct = async()=>{
         }
     }
 }
+
+
 
 
 // Buscador empleados
