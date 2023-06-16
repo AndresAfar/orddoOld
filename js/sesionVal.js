@@ -5,12 +5,6 @@ const checksesion =()=>{
   if(sesion == null){
     window.location.href ="index.html";
   }else{
-    if(rol == 2){
-      if(window.location == "emploMana.html"){
-        document.getElementById("sec-gesEmplo").style.display = "none";
-        console.log("En la pagina");
-      }
-    }
     document.querySelector('#userVal').innerHTML=sesion;
   }
 }
@@ -24,4 +18,10 @@ const checkpremision =()=>{
     if(rol == 2){
       window.location.href ="homeUP.html";
     }
+}
+
+const session=()=>{
+  if(rol == 2){
+    document.getElementById("sec-gesEmplo").style.visibility = 'hidden';
+  }
 }

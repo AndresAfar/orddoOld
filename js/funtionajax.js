@@ -1,5 +1,8 @@
 $(function () {
 
+    var totalOrder1 = 0;
+    localStorage.setItem("totalOrder" , totalOrder1);
+
     
     let carrito = JSON.parse(localStorage.getItem("carrito")) || []; 
 
@@ -32,6 +35,36 @@ $(function () {
 
     });
 
+/*
+    $('#finOr').click(function(){
+
+        var docu = document.querySelector("#documentCli").value;
+        var name = document.querySelector("#nameClient").value;
+        var idEmplo = localStorage.getItem("id_Empleado");
+
+        var totalOrder = document.querySelector("#labelInputNum").value;
+        var check = document.getElementById('confirmOrder').checked;
+
+        const data = new FormData();
+        data.append("totalOrder",totalOrder);
+        data.append("document",docu);
+        data.append("name",name);
+        data.append("idEmplo",idEmplo);
+
+        $.ajax({
+                url : 'tu_url',
+                data : data, 
+                method : 'post', //en este caso
+                dataType : 'json',
+                success : function(response){
+                       //codigo de exito
+                },
+                error: function(error){
+                       //codigo error
+                }
+        });
+});*/
+
 
     
 
@@ -42,10 +75,9 @@ $(function () {
 
         const id = $(this).attr("taskid");
 
-                               
-
                                     
        // employees.push(emplo); 
+
 
  
         $.ajax({
@@ -62,6 +94,8 @@ $(function () {
                     const repeat = carrito.some((repeatProduct) => repeatProduct.id === employees[0].idbtnproduct);
 
                     contador= 1 ; 
+                    contadorCarrito = 1;
+                    //totalOr= carrito.precio ;
 
                     if(repeat){
 
@@ -77,21 +111,32 @@ $(function () {
                     }else{
                     
                     carrito.push({
-
+                        idCarrito : contadorCarrito++,
+                        
                         id: employees[0].idbtnproduct , 
 
                         nombre: employees[0].nombreProducto , 
-
+    
                         precio: employees[0].precioProducto , 
-
-                        cantidad: contador 
-
+    
+                        cantidad: contador
                     });
 
-                    }
+                    /*carrito.push({
+                        idCarrito : contadorCarrito++,
 
+                        pedido : [{id: employees[0].idbtnproduct , 
 
-                    mostrarProductosCarrito(); 
+                            nombre: employees[0].nombreProducto , 
+    
+                            precio: employees[0].precioProducto , 
+    
+                            cantidad: contador}]
+                    });*/
+
+                }
+                    
+                    mostrarProductosCarrito();
 
 
                 }
@@ -112,6 +157,7 @@ $(function () {
 
         // Limpiar la tabla
         $("#secOrder").empty();
+
    
        // Agregar los productos actualizados al carrito
        carrito.forEach(producto => {
@@ -132,8 +178,10 @@ $(function () {
           $("#secOrder").append(templete);
           $(".restar").css("cursor", "pointer");
           $(".sumar").css("cursor", "pointer");
-
        });
+
+       saveLocal();
+       calculateOrder();
 
        
           $(".restar").on("click", function() {
@@ -151,15 +199,46 @@ $(function () {
 
 
                 product.cantidad--;
+                
+                /*
+                localStorage.setItem("totalOrder" , total);
+                product.total = total;
+
+                cantidadElement.text(product.cantidad);
+                totalElement.text(total);*/
 
                 cantidadElement.text(product.cantidad);
 
                 saveLocal();
+                calculateOrder();
                
               
             }
                
           });
+          /*
+          $(".btn-pro-p").on("click", function() {
+
+            const row = $(".product-row");
+            const index = row.attr("taskid");
+            const cantidadElement = row.find(".cantidad");
+            const totalElement = row.find(".total");
+            const product = carrito.find(producto => producto.id === index);
+
+            if (product) {
+                product.cantidad++;
+
+                var total = product.total;
+                total = product.precio * product.cantidad;
+                localStorage.setItem("totalOrder" , total);
+                product.total = total;
+                cantidadElement.text(product.cantidad);
+                totalElement.text(total)
+                document.getElementById("labelInputNum").value = "";
+            }
+
+            });*/
+
 
           $(".sumar").on("click", function() {
 
@@ -170,16 +249,20 @@ $(function () {
 
             if (product) {
                 product.cantidad++;
+
+                total = product.precio * product.cantidad;
                 cantidadElement.text(product.cantidad);
+                document.getElementById("labelInputNum").value = "";
+
                 saveLocal();
+                calculateOrder();
             }
-            
-             });
+
+            });
 
 
 
-    }; 
-
+    };
 
 
 
@@ -190,8 +273,6 @@ $(function () {
 
         const selectedId = button.attr("taskid");
 
-      
-
         
         carrito = carrito.filter((carritoId) =>{
 
@@ -199,16 +280,26 @@ $(function () {
 
         });
 
-        saveLocal(); 
-
-        mostrarProductosCarrito(); 
+        
+        mostrarProductosCarrito();
 
     }; 
 
     const saveLocal = () => {
 
         localStorage.setItem("carrito" , JSON.stringify(carrito));
-        localStorage.removeItem('carrito');
+        //localStorage.removeItem('carrito');
+
+        
+    }; 
+
+    const calculateOrder = () => {
+
+        var totalOrder = carrito.reduce((sum, value) => (sum + value.precio * value.cantidad /*typeof value.total == "number" ? sum + value.total : sum*/), 0);
+        document.getElementById("labelInputNum").value = "";
+        document.querySelector("#labelInputNum").value=totalOrder;
+        localStorage.setItem("totalOrder" , totalOrder);
+
 
         
     }; 
@@ -256,4 +347,3 @@ $(function () {
     });*/
 
 }); 
-

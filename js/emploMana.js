@@ -10,7 +10,6 @@ const loadroleEmplo = async()=>{
         `;
     });
     document.querySelector("#jobPos").innerHTML=roleHTML;
-    document.querySelector("#ejobPos").innerHTML=roleHTML;
 }
 
 
@@ -34,6 +33,23 @@ const loadEmployees = async()=>{
         `;
     });
     document.querySelector("#employeesTbl").innerHTML=emploHTML;
+}
+
+//Consultar id de empelado
+const idEmplo = async()=>{
+    
+    var username = localStorage.getItem("username");
+    var id_emplo = localStorage.getItem("idEmple");
+    
+    const data = new FormData();
+    data.append("usernamer",username);
+    
+    var res = await fetch("php/employe/emploId.php", {
+        method:'POST',
+        body: data
+    });
+    var result = await res.json();
+    localStorage.setItem("idEmple", result.idEmpleado)
 }
 
 
@@ -77,6 +93,7 @@ const editEmplo=async(id_emplo)=>{
         method:'POST',
         body: data
     });
+    var roleHTML = ``;
     var result = await res.json();
 
     document.querySelector("#edocument").value=result.documento;
@@ -86,7 +103,7 @@ const editEmplo=async(id_emplo)=>{
     document.querySelector("#elast-name").value=result.apellido;
     document.querySelector("#ephone-number").value=result.telefono;
     localStorage.setItem('id_Empleado', result.emploid);
-    
+
     if(result.cargo == 'Em. General'){
         roleHTML +=`
             <option value="2" selected>Em .General</option>
