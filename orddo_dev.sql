@@ -17,7 +17,6 @@ CREATE TABLE usuario(
     nombre varchar(45) not null,
     apellido varchar(45) not null,
     telefono varchar(15) not null,
-    fechaRegistroUser date not null,
     primary key(id_usuario),
     unique(usuario, documento),
     foreign key(rol_id_rol) references rol(id_rol)
@@ -25,10 +24,10 @@ CREATE TABLE usuario(
 
 CREATE TABLE cliente(
     id_cliente int not null auto_increment,
+    documentoCliente varchar(45) not null,
     nombreCliente varchar(45) not null,
-    apellidoCliente varchar(45) not null,
     primary key(id_cliente),
-    unique(id_cliente)
+    unique(id_cliente,documentoCliente)
 )auto_increment=1;
 
 
@@ -39,53 +38,40 @@ CREATE TABLE producto(
     precioProducto double not null,
     estadoProducto varchar(20),
     primary key(id_producto),
-    unique(nombreProducto, id_producto)
+    unique(id_producto)
 )auto_increment=1;
 
-
-
-CREATE TABLE pedidos_producto(
-    pedido_id_pedido2 int not null,
-    pro_id_producto2 int not null
-);
 
 CREATE TABLE pedido(
     id_pedido int not null auto_increment,
     usu_id_usuario int not null,
-    pro_id_producto int not null,
     cli_id_cliente int not null,
-    descripcionPedido text(150) not null,
-    estadoPedido varchar(20) not null,
     totalPedido double not null,
     fechaPedido date not null,
     primary key(id_pedido),
     unique(id_pedido)
 )auto_increment=1;
 
-CREATE TABLE reporte(
-    id_reporte int not null auto_increment,
-    pedido_id_pedido int not null,
-    nombreReporte varchar(45) not null,
-    descripcionReporte text(150) not null,
-    primary key(id_reporte),
-    unique(id_reporte)
+CREATE TABLE detalle_venta(
+    idDetalle int not null auto_increment,
+    idPedido int not null,
+    idProducto int not null,
+    precioUnitario double not null,
+    cantidad int not null,
+    decripcion TEXT(120) not null,
+    primary key(idDetalle),
+    unique(idDetalle, idPedido)
 )auto_increment=1;
 
 
 #pedidos
-alter table orddo_dev.pedido add foreign key(usu_id_usuario) references usuario(id_usuario);
-alter table orddo_dev.pedido add foreign key(pro_id_producto) references pedidos_producto(pro_id_producto2);
-alter table orddo_dev.pedido add foreign key(cli_id_cliente) references cliente(id_cliente);
+alter table pedido add foreign key(usu_id_usuario) references usuario(id_usuario);
+alter table pedido add foreign key(cli_id_cliente) references cliente(id_cliente);
 
 
-
-#reporte
-alter table orddo_dev.reporte add foreign key(pedido_id_pedido) references pedido(id_pedido);
-
-#pedidos_producto
-alter table orddo_dev.pedidos_producto add foreign key(pedido_id_pedido2) references pedido(id_pedido);
-alter table orddo_dev.pedidos_producto add foreign key(pro_id_producto2) references producto(id_producto);
-
+#tabla detalle venta
+ALTER TABLE detalle_venta ADD foreign key(idProducto) references producto(id_producto);
+ALTER TABLE detalle_venta ADD foreign key(idPedido) references pedido(id_pedido);
 
 
 INSERT INTO rol values (null, 'Administrador');
@@ -94,4 +80,4 @@ INSERT INTO rol values (null, 'Em. General');
 INSERT INTO usuario(rol_id_rol, documento, usuario, contrasena, nombre, apellido, telefono) VALUES(1,'123456789','admin123', md5('Admin123_'),'Admin','Des','123445599');
 
 user: admin123
-pass: Admin123_
+pass: Admin12345__
