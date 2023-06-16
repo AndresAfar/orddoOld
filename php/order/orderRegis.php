@@ -2,6 +2,11 @@
 
 require_once '../connection.php';
 
+date_default_timezone_set('America/Bogota');
+date_default_timezone_set('America/Bogota');
+
+
+
 
 $val['success']=array('success' =>false, 'mess'=>"");
 
@@ -15,7 +20,7 @@ if($_POST){
 
 
     $consult_descri = "blabla";
-    $dateOrder = date("d-m-y");
+    $dateOrder = date('Y-m-d');
 
 
     
