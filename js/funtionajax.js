@@ -179,7 +179,6 @@ $(function () {
           $(".restar").css("cursor", "pointer");
           $(".sumar").css("cursor", "pointer");
        });
-
        saveLocal();
        calculateOrder();
 
@@ -288,9 +287,6 @@ $(function () {
     const saveLocal = () => {
 
         localStorage.setItem("carrito" , JSON.stringify(carrito));
-        //localStorage.removeItem('carrito');
-
-        
     }; 
 
     const calculateOrder = () => {
