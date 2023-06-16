@@ -22,7 +22,7 @@
     
     <title>Pedidos - Orddo</title>
 </head>
-<body onload="checksesion();">
+<body onload="checksesion(); session(); loadComands();">
 
     <header class="div-navbar">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -40,10 +40,10 @@
                         <a class="nav-link" href="productGes.html">Productos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="emploMana.html">Gestión Empleados</a>
+                        <a class="nav-link" href="order.html">Pedidos</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
+                    <li class="nav-item" id="sec-gesEmplo">
+                        <a class="nav-link" href="emploMana.html">Gestión Empleados</a>
                     </li>
                 </ul>
                   <form class="d-flex" role="dropdown">
@@ -60,213 +60,28 @@
   </header>
 
 
-  <div class="card m-4">
-    <div class="card-header">
-        Productos
-    </div>
-    <div class="card-body">
-        <div class="mb-4">
-            <div class="row d-flex m-2 div-content-btn-search" style="float: right;">
-                <div class="col text-end">
-                    <button class="btn btn-success mx-2 btn-addPro" data-bs-toggle="modal" data-bs-target="#addModal">Agregar producto</button>
-                </div>
-                <div class="col text-end">
-                    <form class="d-flex inputFormSearch text-center" method="get">
-                        <input type="text" id="search" name="search" placeholder="Buscar Producto" class="form-control me-2 intsearch">
-                        <button type="button" name="enviar" class="btn btn-p" onclick="loadSearchProduct()">Buscar</button>
-                    </form>
-                </div>
-            </div>
-            <div class="row mb-2" style="height: 120px;">
-                <div class="card" id="consult-result" style="visibility:hidden;">
-                    <div class="card-body">
-                        <div id="div-result" class="section-Product p-0 m-0" style="height: 110px; ">
-                            <table id="tblSearch" class="table table-responsive div-table-search" style="font-size: 14px;">
-                                <thead class="table-dark">
-                                    <tr>
-                                        <td>Id</td>
-                                        <td>Nombre</td>
-                                        <td>Descripción</td>
-                                        <td>Precio</td>
-                                        <td>Estado</td>
-                                        <td>Acciones</td>
-                                    </tr>
-                                </thead>
-                                <tbody id="showSearch" class="">
-                                    
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="card m-4">
+        <div class="card-header">
+            Productos
         </div>
-
-            <div class="section-Product" style="height: 310px;">
-                <table class="table table-sm" id="table-refresh">
-                    <thead class="table-dark">
-                        <tr>
-                            <td class="">Id</td>
-                            <td class="">Nombre</td>
-                            <td class="">Descripción</td>
-                            <td class="">Precio</td>
-                            <td class="">Estado</td>
-                            <td class="">Editar</td>
-                            <td class="">Eliminar</td>
-                        </tr>
-                    </thead>
-                    <tbody id="productTbl">
-    
-                    </tbody>
-                </table>
-            </div>
-        </div>
-</div>
-
-    
-    <!-- Modal -->
-    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Pedido</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="formaddPro">
-                        <div class="conteiner-fluid">
-                            <div class="row">
-                                <div class="mb-3 col-md-6">
-                                    <label for="documentCli" class="form-label">Documento: </label>
-                                    <input type="text" class="form-control" id="documentCli" placeholder="1122f44456" value="1031640217">
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label for="nameClient" class="form-label">Nombre Cliente: </label>
-                                    <input type="text" class="form-control" id="nameClient" placeholder="Juanito Perez" value="Andres">
-                                </div>
-                            </div>
-                            <div class="container">
-                                <div class="card">
-                                    <div class="card-header">
-
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="input-group">
-                                            <div class="section-product-ops col-md-6">
-                                                <div id="btnProductSel" class="section-btn-pe">
-                                                
-                                                </div>
-                                            </div>
-                                            <div class="section-orde col-md-6 container">
-                                                <div class="section-order-mana" id="section-order-mana">
-                                                    <table class="table table-sm table-p-dis" id="table-dis">
-                                                        <thead class="table-dark">
-                                                            <tr>
-                                                                <td>Nombre</td>
-                                                                <td>Precio</td>
-                                                                <td></td>
-                                                                <td>Cantidad</td>
-                                                                <td></td>
-                                                                <td></td>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="secOrder">
-                                        
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <div class="btns-section container-fluid">
-                                                    <input type="number" class="form-control text-bg-secondary labelInputNum" style="font-size: large;" id="labelInputNum" disabled>
-                                                </div>
-                                                <div class="form-check my-2" style="width: 40%; float: right;">
-                                                    <input class="form-check-input" type="checkbox" value="" id="confirmOrder">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Confirmar Pedido
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-
-                        </div>
-
+        <div class="card-body" style="display: flex;">
+            <div class="input-group">
+                <div class="sec1" style="width: 60%; height: 600px; background-color: rgb(204, 175, 175); border-radius: 2px; border-right-color: rgb(208, 145, 101); border-right-style: solid;">
+                    <div id="orderComand" class="section-orderComand p-2 d-flex">
                         
-                        <div class="mb-3">
-                            <label for="descri" class="form-label">Descripción</label>
-                            <textarea class="form-control" id="descri" rows="3" value="Sin uvas, melon etc.."></textarea>
-                        </div>
+                    </div>
                 </div>
-                    <div class="modal-footer">
-                        <button type="button"  class="btn btn-primary p-1">Limpiar</button>
-                        <button type="button"  class="btn btn-warning p-1 btn-order"  id="finOr" value="" onclick="ConfirmOrder()">Ordenar</button>
+                <div class="sec2" style="width: 40%; height: 600px; background-color: rgb(154, 154, 177); border-radius: 2px; border-left-color: rgb(208, 145, 101); border-left-style: solid;">
+                    <label for="">Productos</label>
+                    <div id="orderComand2" class="section-orderComand p-2">
+                        
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
+        </div>  
     </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="finorder" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Pago de Pedido</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="formaddPro">
-                    <div class="mb-2">
-                        <label for="price" class="form-label" id="Total_pedido">Total a Pagar: </label>
-                    </div>
-                    <div class="mb-2">
-                        <label for="price" class="form-label" id="Total_pedido">Se recibe: </label>
-                    </div>
-                    <div class="mb-2">
-                        <label for="price" class="form-label" id="Total_pedido">Cambio: </label>
-                    </div>
-                    <div class="mb-2">
-                        <div class="col-8 m-auto">
-                            <div class="output">
-                                <div class="operand">
-
-                                </div>
-                            </div>
-                            <div style="width: 100%;">
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td><button data-number type="button"  class="btn btn-primary btn-cal"  value="1">1</button></td>
-                                            <td><button data-number type="button"  class="btn btn-primary btn-cal"  value="2">2</button></td>
-                                            <td><button data-number type="button"  class="btn btn-primary btn-cal"  value="3">3</button></td>
-                                            <td><button data-number type="button"  class="btn btn-success btn-cal2"  value="10000">10.000</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td><button data-number type="button"  class="btn btn-primary btn-cal" value="4">4</button></td>
-                                            <td><button data-number type="button"  class="btn btn-primary btn-cal" value="5">5</button></td>
-                                            <td><button data-number type="button"  class="btn btn-primary btn-cal" value="6">6</button></td>
-                                            <td><button data-number type="button"  class="btn btn-success btn-cal2"  value="20000">20.000</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td><button data-number type="button"  class="btn btn-primary btn-cal" value="7">7</button></td>
-                                            <td><button data-number type="button"  class="btn btn-primary btn-cal" value="8">8</button></td>
-                                            <td><button data-number type="button"  class="btn btn-primary btn-cal" value="9">9</button></td>
-                                            <td><button data-number type="button"  class="btn btn-success btn-cal2"  value="50000">50.000</button></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <button type="button"  class="btn btn-danger p-2"  value="" data-bs-toggle="modal" data-bs-target="#finorder">Finalizar</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        </div>
-    </div>
+            
+</div>
 
 
     <footer class="container-fluid position-fixed bottom-0 end-0 bg-dark text-white">
@@ -283,4 +98,5 @@
     <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
     <script src="./js/sesionVal.js"></script>
     <script src="./js/funtionajax.js"></script>
+    <script src="./js/loadComand.js"></script>
 </html>
