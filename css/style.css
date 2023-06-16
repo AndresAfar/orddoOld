@@ -126,6 +126,18 @@ body{
 }
 
 
+.div-comand{
+    background-color: #EA7C4B;
+    width: 6rem;
+    height: 4.5rem;
+    color: aliceblue;
+    font-size: 15px;
+    margin: 3px;
+}
+
+/*style="width: 100px; height: 90px; background-color: beige; border-radius: 3px; margin: 3px;"*/
+
+
 @media (max-width:623px){
     .btn-addPro{
         height: 38px;
