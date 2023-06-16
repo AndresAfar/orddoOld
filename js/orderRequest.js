@@ -111,12 +111,16 @@ const ConfirmOrder = async()=>{
                     title: 'EXITO!',
                     text: result.mess
                 })
+                document.querySelector("#documentCli").value=""
+                document.querySelector("#nameClient").value=""
+                setTimeout(()=>{
+                    reload();
+                },1200)
             }
         }
     }else{
         console.log('error');
     }
-
 
     /*
     var res = await fetch("php/order/orderRequest.php", {
@@ -134,4 +138,10 @@ const ConfirmOrder = async()=>{
         })
     }*/
     
+}
+
+
+function reload(){
+    localStorage.removeItem('carrito');
+    window.location.href = window.location.href;
 }
