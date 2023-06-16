@@ -35,41 +35,8 @@ $(function () {
 
     });
 
-/*
-    $('#finOr').click(function(){
-
-        var docu = document.querySelector("#documentCli").value;
-        var name = document.querySelector("#nameClient").value;
-        var idEmplo = localStorage.getItem("id_Empleado");
-
-        var totalOrder = document.querySelector("#labelInputNum").value;
-        var check = document.getElementById('confirmOrder').checked;
-
-        const data = new FormData();
-        data.append("totalOrder",totalOrder);
-        data.append("document",docu);
-        data.append("name",name);
-        data.append("idEmplo",idEmplo);
-
-        $.ajax({
-                url : 'tu_url',
-                data : data, 
-                method : 'post', //en este caso
-                dataType : 'json',
-                success : function(response){
-                       //codigo de exito
-                },
-                error: function(error){
-                       //codigo error
-                }
-        });
-});*/
-
-
-    
-
-    //Seleciona el boton para agregar a pedido
-    $(document).on('click','.btn-pro-p', function(e) {
+     //Seleciona el boton para agregar a pedido
+     $(document).on('click','.btn-pro-p', function(e) {
 
         const element = e.target;
 
