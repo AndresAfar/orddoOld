@@ -1,9 +1,10 @@
+// Función pedido carrito de productos  
 $(function () {
 
     var totalOrder1 = 0;
     localStorage.setItem("totalOrder" , totalOrder1);
 
-    
+    // Arreglo carrito de productos 
     let carrito = JSON.parse(localStorage.getItem("carrito")) || []; 
 
 
@@ -40,12 +41,7 @@ $(function () {
 
         const element = e.target;
 
-        const id = $(this).attr("taskid");
-
-                                    
-       // employees.push(emplo); 
-
-
+        const id = $(this).attr("taskid");                   
  
         $.ajax({
             url: "php/order/showProOrder.php",
@@ -62,8 +58,7 @@ $(function () {
 
                     contador= 1 ; 
                     contadorCarrito = 1;
-                    //totalOr= carrito.precio ;
-
+                    
                     if(repeat){
 
                         carrito.map((prod) =>{
@@ -89,18 +84,6 @@ $(function () {
                         cantidad: contador
                     });
 
-                    /*carrito.push({
-                        idCarrito : contadorCarrito++,
-
-                        pedido : [{id: employees[0].idbtnproduct , 
-
-                            nombre: employees[0].nombreProducto , 
-    
-                            precio: employees[0].precioProducto , 
-    
-                            cantidad: contador}]
-                    });*/
-
                 }
                     
                     mostrarProductosCarrito();
@@ -118,7 +101,7 @@ $(function () {
     });
 
 
-
+// Función mostrar los productos en la tabla de productGes.html 
 
     const mostrarProductosCarrito = () => {
 
@@ -149,7 +132,7 @@ $(function () {
        saveLocal();
        calculateOrder();
 
-       
+       // Función restar cantidad producto 
           $(".restar").on("click", function() {
 
             const row = $(this).closest(".product-row");
@@ -160,18 +143,10 @@ $(function () {
 
             const product = carrito.find(producto => producto.id === index); 
 
-
             if (product && product.cantidad > 1) {
 
 
                 product.cantidad--;
-                
-                /*
-                localStorage.setItem("totalOrder" , total);
-                product.total = total;
-
-                cantidadElement.text(product.cantidad);
-                totalElement.text(total);*/
 
                 cantidadElement.text(product.cantidad);
 
@@ -182,29 +157,8 @@ $(function () {
             }
                
           });
-          /*
-          $(".btn-pro-p").on("click", function() {
 
-            const row = $(".product-row");
-            const index = row.attr("taskid");
-            const cantidadElement = row.find(".cantidad");
-            const totalElement = row.find(".total");
-            const product = carrito.find(producto => producto.id === index);
-
-            if (product) {
-                product.cantidad++;
-
-                var total = product.total;
-                total = product.precio * product.cantidad;
-                localStorage.setItem("totalOrder" , total);
-                product.total = total;
-                cantidadElement.text(product.cantidad);
-                totalElement.text(total)
-                document.getElementById("labelInputNum").value = "";
-            }
-
-            });*/
-
+        // Función sumar cantidad producto 
 
           $(".sumar").on("click", function() {
 
@@ -231,7 +185,7 @@ $(function () {
     };
 
 
-
+    // Función eliminar producto 
 
     const eliminarproducto = (e) => {
 
@@ -251,10 +205,14 @@ $(function () {
 
     }; 
 
+    //Guardar los productos del carrito en el localStorage
+
     const saveLocal = () => {
 
         localStorage.setItem("carrito" , JSON.stringify(carrito));
     }; 
+
+    //Función calcular el total de la orden 
 
     const calculateOrder = () => {
 
@@ -267,7 +225,7 @@ $(function () {
         
     }; 
 
-    //eliminar producto 
+    // Evento eliminar producto 
     
      $(document).on('click', '.btn-p-delete', function(e) {
 
@@ -276,37 +234,5 @@ $(function () {
         eliminarproducto(e); 
 
      }); 
-
-
-   
-    /*
-    //realizar actualizaciones en editar producto
-    $(document).on('click','.btn-upload', function(event){
-        event.preventDefault();
-        const postData = {
-            id: $("#eid").val(),
-            name: $("#ename").val(),
-            price: $("#eprice").val(),
-            status: $("#estatus").val(),
-            descri: $("#edescri").val()
-        }
-        $.ajax({
-            url: "php/products/uploadProduct.php",
-            data: postData,
-            type: "POST",
-            success: function(response){
-                if(!response.error){
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'EXITO!',
-                        text: 'Se a relalizado la actualizacion'
-                    })
-                    $("#formeditPro").trigger("reset");// trigger hace que se recete el formulario al momento de realizar la actualizacion
-                    $("#productTbl").trigger("reset");// trigger hace que se recete la tabla
-                    $('#editModal').modal('hide');
-                }
-            }
-        })
-    });*/
 
 }); 
